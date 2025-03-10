@@ -1,0 +1,49 @@
+.top-nav{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 1px 1px 10px grey;
+  width: 100%;
+}
+.logo{
+  display: flex;
+  gap: 10px;
+  font-weight: bolder;
+}
+.search{
+  padding: 10px;
+  border-radius: 25px;
+  border: 1px solid grey;
+}
+.search input{
+  outline: none;
+  color: var(--text);
+}
+
+
+.lang {
+  position: relative;
+}
+
+.lang ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lang li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.lang li:hover {
+  background: #f3f3f3;
+}
+
+

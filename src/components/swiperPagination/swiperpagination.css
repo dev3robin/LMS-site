@@ -1,0 +1,64 @@
+.swiper-container {
+  position: relative;
+  width: 100%;
+  max-width: 1260px;
+  overflow: hidden;
+}
+.swiperContent {
+  display: flex;
+}
+
+@layer utilities {
+  .slides {
+    min-width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:transform 0.5s ease-in-out;
+  }
+}
+
+.swiper-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color:transparent;
+  color: #0080FF;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  z-index: 10;
+  outline: none;
+  border: none;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+.pagi-container{
+  display: flex;
+  gap:5px;
+  position: absolute;
+  bottom: 20px;
+}
+.dot:active{
+  background-color: #0080FF;
+}
+.carousel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+@media screen and (min-width: 1560px) {
+  .swiper-container {
+    width: 70%;
+  }
+}

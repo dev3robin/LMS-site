@@ -1,0 +1,88 @@
+.footerSection{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #1D1E27;
+}
+.footerSection>div{
+  padding: 20px;
+}
+.footer-qoutes{
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+
+}
+.footer-qoutes :nth-child(2){
+  padding-left: 20px;
+}
+.footer-qoutes :nth-child(3){
+  padding-left: 40px;
+}
+
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  color: white;
+  font-family: serif;
+  font-size: .8rem;
+}
+  
+
+.skills div li{
+  text-decoration: none;
+  list-style: none;
+}
+.skills div h1{
+  padding-bottom: 20px;
+  font-size: 1rem;
+}
+
+
+.skills :nth-child(5) {
+  grid-row-start: 2;
+}
+.skills :nth-child(6) {
+  grid-row-start: 2;
+}
+
+.skills :nth-child(7) {
+  grid-row-start: 2;
+}
+.skills :nth-child(8) {
+  grid-row-start: 2;
+}
+
+.about{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 30px;
+  color: white;
+  list-style: none;
+  font-family: serif;
+  font-size: .8rem;
+  background-color: #111116;
+}
+.about div h1{
+  padding-bottom: 20px;
+  font-size: 1rem;
+}
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: #111116;
+}
+.footerheading{
+  color: white;
+  font-size: large;
+  font-size: 500;
+  padding-bottom:20px ;
+}
