@@ -28,6 +28,8 @@ body {
 @media screen and (min-width: 320px) and (max-width: 480px) {
   .top-nav {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
   .search-div, .login, .signup, .dashboard, .lang, .theme{
     display: none;
