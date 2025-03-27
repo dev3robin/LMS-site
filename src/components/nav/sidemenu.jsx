@@ -1,17 +1,17 @@
-
 import React,{useEffect,useState} from 'react';
 
-//importing icons
 import LanguageIcon from '@mui/icons-material/Language';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Button } from '@mui/material';
-
-import { styled } from '@mui/material/styles';
-import Switch from '@mui/material/Switch';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import Menu from './sidemenu';
-import SearchBar from '../dashboard/components/search';
+import { styled } from '@mui/material/styles';
+import Switch from '@mui/material/Switch';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+
+import "../nav/sidemenu.css"
+
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -68,7 +68,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     }),
   },
 }));
-const NavBar = () => {
+const Menu = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const { i18n } = useTranslation();
   useEffect(() => {
@@ -85,52 +86,50 @@ const NavBar = () => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   };
-
-
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setShowDropdown(false);
   };
-  
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
-      <>
-        <nav className='top-nav'>
-          <Menu />
-          <Link to="/">
-            <div className="logo">
-              <img src="public\Capture.PNG" alt=""/>
+          <div className="menudiv">
+            <div className="menuicon" onClick={toggleSidebar}>
+              <MenuIcon />
             </div>
-          </Link>
-          <div className="search-div"><SearchBar /></div>
-          <div className="cart"><ShoppingCartIcon /></div>
-          <div className="login"><Link to="/login"><Button>login</Button></Link></div>
-          <div className="signup"><Link to="/signUp"><Button>signup</Button></Link></div>
-          <div className="dashboard"><Link to="/dashboard"><Button>Dashboard</Button></Link></div>
-          <div className="relative lang">
-            <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" />
-              {showDropdown && (
-                <div className="absolute z-10 right-0 mt-2 w-40 bg-white text-black rounded-md shadow-lg">
-                  <ul className="p-2">
-                    <li onClick={() => changeLanguage('en')} className="p-2 hover:bg-gray-200 cursor-pointer">English</li>
-                    <li onClick={() => changeLanguage('fr')} className="p-2 hover:bg-gray-200 cursor-pointer">Français</li>
-                    <li onClick={() => changeLanguage('hi')} className="p-2 hover:bg-gray-200 cursor-pointer">Hindi</li>
-                    <li onClick={() => changeLanguage('bn')} className="p-2 hover:bg-gray-200 cursor-pointer">Bangla</li>
-                    <li onClick={() => changeLanguage('ar')} className="p-2 hover:bg-gray-200 cursor-pointer">Arabic</li>
-                    <li onClick={() => changeLanguage('es')} className="p-2 hover:bg-gray-200 cursor-pointer">Español</li>
-                  </ul>
-                </div>
-              )}
+            <div className={`menucontent ${isSidebarOpen ? 'show' : ''}`}>
+              <div className="closeicon" onClick={toggleSidebar}>
+                <CloseIcon />
+              </div>
+              <div className="cart1"><ShoppingCartIcon /></div>
+              <div className="login1"><Link to="/login"><Button>login</Button></Link></div>
+              <div className="signup1"><Link to="/signUp"><Button>signup</Button></Link></div>
+              <div className="dashboard1"><Link to="/dashboard"><Button>Dashboard</Button></Link></div>
+              <div className="relative lang1">
+                <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" />
+                {showDropdown && (
+                  <div className="absolute z-10 right-0 mt-2 w-40 bg-white text-black rounded-md shadow-lg">
+                    <ul className="p-2">
+                      <li onClick={() => changeLanguage('en')} className="p-2 hover:bg-gray-200 cursor-pointer">English</li>
+                      <li onClick={() => changeLanguage('fr')} className="p-2 hover:bg-gray-200 cursor-pointer">Français</li>
+                      <li onClick={() => changeLanguage('hi')} className="p-2 hover:bg-gray-200 cursor-pointer">Hindi</li>
+                      <li onClick={() => changeLanguage('bn')} className="p-2 hover:bg-gray-200 cursor-pointer">Bangla</li>
+                      <li onClick={() => changeLanguage('ar')} className="p-2 hover:bg-gray-200 cursor-pointer">Arabic</li>
+                      <li onClick={() => changeLanguage('es')} className="p-2 hover:bg-gray-200 cursor-pointer">Español</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div className="theme1">
+                <MaterialUISwitch
+                  onChange={handleThemeChange}
+                  defaultChecked={document.documentElement.getAttribute('data-theme') === 'dark'}
+                />
+              </div>
+            </div>
           </div>
-          <div className="theme">
-            <MaterialUISwitch
-              onChange={handleThemeChange}
-              defaultChecked={document.documentElement.getAttribute('data-theme') === 'dark'}
-            />
-          </div>
-        </nav>
-
-      </>
   )
 }
 
-export default NavBar
+export default Menu

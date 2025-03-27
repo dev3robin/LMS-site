@@ -46,28 +46,3 @@
   width: 100%;
 }
 
-/* Breakpoints */
-@media (max-width: 1360px) {
-  .boldlines {
-    width: 98%;
-    transition: transform 2s ease-in-out;
-  }
-}
-@media (min-width: 1360px) {
-  .boldlines {
-    width: 90%;
-    transition: transform 2s ease-in-out;
-  }
-}
-@media (min-width: 1460px) {
-  .boldlines {
-    width: 80%;
-    transition: transform 2s ease-in-out;
-  }
-}
-@media (min-width: 1560px) {
-  .boldlines {
-    width: 70%;
-    transition: transform 2s ease-in-out;
-  }
-}

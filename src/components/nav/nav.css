@@ -1,16 +1,10 @@
-.top-nav{
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow: 1px 1px 10px grey;
-  width: 100%;
-}
+
 .logo{
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
   font-weight: bolder;
+  width: 100px;
 }
 .search{
   padding: 10px;
@@ -46,4 +40,20 @@
   background: #f3f3f3;
 }
 
+.top-nav {
+  padding: 15px 20px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(214, 214, 214);
+  flex-shrink: 1;
+  width: 100%;
+  gap: 10px;
+}
 
+.cartSearch{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

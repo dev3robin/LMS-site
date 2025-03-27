@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const useHorizontalScroll = (scrollRef) => {
   const [showLeftBtn, setShowLeftBtn] = useState(false);
-  const [showRightBtn, setShowRightBtn] = useState(false);
+  const [showRightBtn, setShowRightBtn] = useState(true);
 
   const scroll = (dir) => {
     if (scrollRef.current) {
@@ -18,7 +18,7 @@ const useHorizontalScroll = (scrollRef) => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       setShowLeftBtn(scrollLeft > 0);
-      setShowRightBtn(scrollLeft + clientWidth < scrollWidth);
+      // setShowRightBtn(scrollLeft + clientWidth < scrollWidth);
     }
   };
 
@@ -44,3 +44,5 @@ const useHorizontalScroll = (scrollRef) => {
 };
 
 export default useHorizontalScroll;
+
+

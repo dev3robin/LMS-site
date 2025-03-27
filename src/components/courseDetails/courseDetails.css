@@ -1,0 +1,50 @@
+.CDetailsDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.CDetailsProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background: transparent;
+}
+.CDetailscourseDetailsHover{
+  display: flex;
+  flex-direction: column;
+}
+/* Default Styles */
+.CDetailsProfile {
+  transition: transform 2s ease-in-out;
+  width: 100%;
+}
+.cdDiv{
+  width: 100%;
+  background-color:#1D1E27;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.cdImg{
+  height: 350px;
+  width: 600px;
+
+}
+
+.whatUWL{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  padding: 30px;
+}
+.contentP{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
