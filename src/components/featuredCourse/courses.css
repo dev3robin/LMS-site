@@ -22,6 +22,18 @@
 .coursesBtn li.active{
   background-color: #6a6c85;
 }
+.coursesDivTemp{
+  width: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: var(--cardContentBg);
+  overflow: hidden;
+}
+
 .Nav{
   background-color: transparent ;
   width: 100%;
@@ -29,34 +41,74 @@
   align-items: center;
   position: relative;
 }
-.dataScience{
+.coursesDivContainer{
+  background-color: transparent ;
   width: 100%;
   display: flex;
-  align-items: start;
-  flex-direction: column;
-  gap: 30px;
-  background-color: transparent;
-
+  align-items: center;
+  position: relative;
 }
-
 .coursesDiv{
   display: flex;
   align-items: center;
-  gap: 20px;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+  gap: 10px;
+  background-color: transparent;
   width: 100%;
   overflow-x: scroll;
   scrollbar-width: none;
+  overflow-y: visible;
+  padding:3rem 0px 5rem 0px;
+  position: relative;
+
+}
+.courseCard{
+  display: flex;
+  border: 1px solid grey;
+  /* position: relative; */
+}
+.courseDetailsHover{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: black;
+  color: white;
+  text-wrap: wrap;
+  opacity: 0;
+  top: -10%;
+  border-radius: 8px;
+  left: 105%;
+  max-width: 340px;
+  width: 340px;
+  padding:10px 20px;
+  pointer-events: none;
+  overflow: visible;
+  border-radius: 10px;
+  z-index: 100;
+}
+.courseDetailsHover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left:-25px;
+  transform: translateY(-50%);
+  border-width: 15px;
+  border-style: solid;
+  opacity: 0;
+  border-color: transparent black transparent transparent;
 }
 
-.courseCard{
-  border: 1px solid grey;
-  border-radius: 5px;
-  display: flex;
-  max-width: 280px;
-  height: auto;
-  width: 100%;
-  position: relative;
+.courseCard:hover .courseDetailsHover::before {
+  opacity: 1;
 }
+.courseCard:hover .courseDetailsHover{
+  opacity: 1;
+  z-index: 2;
+  pointer-events: auto;
+  overflow: visible;
+}
+
 .courseProfile{
   display: flex;
   flex-direction: column;
@@ -69,22 +121,16 @@
   max-height: 200px;
   max-width: 300px;
 }
-.heading{
-  font-size: large;
+.courseDetails h1{
+  font-size: 1.2rem;
   text-wrap: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  
 }
-.courseContent{
-  width: 100%;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: var(--background);
-}
+
 
 .courseDetails{
   display: flex;
@@ -106,28 +152,6 @@
 .courselink button:hover{
   background-color: hsl(285, 100%, 91%);
 }
-
-.courseDetailsHover {
-  position: absolute;
-  bottom:-100%;
-  left: 0;
-  width: fit-content;
-  height: fit-content;
-  background-color: white;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  border-radius: 5px;
-  transition: bottom 0.5s ease-in-out;
-  font-size: .7rem;
-  gap: 5px;
-  z-index: 2;
-}
-.courseDetailsHover>div{
-  padding: 0px 10px;
-}
 .courseDetailsHover>div>button{
   padding: 10px 0px;
   background-color: #B832FD;
@@ -139,12 +163,45 @@
 .btnDiv{
   width: 100%;
 }
-.courseCard:hover .courseDetailsHover {
-  bottom: 0;
-  left: 100%;
-}
 .title{
-  font-size: larger;
+  font-size: 1.2rem;
   font-weight: 500;
+  margin-bottom: 5px;
 }
+.updateinfo{
+  color: green;
+  margin-bottom: 10px;
+}
+.updateinfo span{
+  background-color:#bfebf8;
+  padding: 2px 4px;
+  border-radius: 2px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+.details{
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.feature{
+  margin-bottom: 10px;
+  font-size: .9rem;
+}
+.describtion>ul li{
+  display: flex;
+  gap: 10px;
+}
+.describtion>ul{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.describtion{
+  margin-bottom: 10px;
+}
+.describtion p{
+  font-size: .8rem;
+}
+
 /* commting some thing is real */
+

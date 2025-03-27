@@ -1,0 +1,219 @@
+/* Extra Large Screens (≥1200px) */
+@media (min-width: 1200px) {
+  .top-nav {
+    background-color: #ffcc00; /* Yellow */
+  }
+  .menudiv{
+    display: none;
+  }
+}
+
+/* Large Screens (992px - 1199px) */
+@media (max-width: 1199px) {
+  .top-nav {
+    background-color: #ff6600; /* Orange */
+  }
+  .menudiv{
+    display: none;
+  }
+}
+
+/* Medium Screens (768px - 991px) */
+@media (max-width: 991px) {
+  .top-nav {
+    background-color: #0099ff; /* Blue */
+  }
+  .search{
+    width: 50%;
+  }
+  .menudiv{
+    display: none;
+  }
+}
+
+/* Small Screens (576px - 767px) */
+@media (max-width: 720px) {
+  .top-nav {
+    background-color: transparent; /* Green */
+  }
+  .search{
+    display: none;
+  }
+  .login,.signup,.dashboard,.lang,.theme{
+    display: none;
+  }
+  .menudiv{
+    display: flex;
+
+  }
+}
+
+/* Extra Small Screens (≤575px) */
+@media (max-width: 575px) {
+  .top-nav {
+    background-color: #9900cc; /* Purple */
+  }
+}
+@media (max-width:360px) {
+  #root{
+    background-color: #9aebd0; /* Purple */
+  }
+}
+
+
+
+
+/* courseDetails css */
+/* Extra Small Devices (Phones) */
+@media (max-width: 576px) {
+  .CDetailsProfile,.whatUWL{
+    width: 98%;
+    background-color: #ffcccc; /* Light Red */
+  }
+}
+
+/* Small Devices (Tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .CDetailsProfile,.whatUWL {
+    width: 95%;
+    background-color: #ffcc99; /* Light Orange */
+  }
+}
+
+/* Medium Devices (Laptops) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .CDetailsProfile,.whatUWL{
+    width: 50%;
+    background-color: #ffff99; /* Light Yellow */
+  }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .CDetailsProfile,.whatUWL{
+    width: 90%;
+  }
+}
+
+/* Extra Large Devices (Big Screens) */
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .CDetailsProfile,.whatUWL{
+    width: 100%;
+    background-color: #99ccff; /* Light Blue */
+  }
+}
+
+/* Ultra Wide Screens */
+@media (min-width: 1441px) {
+  .CDetailsProfile,.whatUWL{
+    width: 70%;
+    background-color: #cc99ff; /* Light Purple */
+  }
+}
+
+/* 
+dashboard css */
+
+@media (max-width: 576px) {
+  .dashboard{
+    width: 98%;
+    background-color: #ffcccc;
+  }
+
+}
+
+@media (max-width: 720px) {
+  .dashboard {
+      width: 98%;
+  }
+  .leftsidenav{
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .dashboard{
+    width: 100%;
+  }
+  .rightsidenav{
+    display: none;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard{
+    width: 100%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .dashboard{
+    width: 95%;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .dashboard{
+    width: 90%;
+  }
+}
+@media (min-width: 1441px) {
+  .dashboard{
+    width: 80%;
+  }
+}
+@media (min-width: 1641px) {
+  .dashboard{
+    width: 70%;
+  }
+}
+
+/* Course cards section */
+@media (max-width: 1360px) {
+  .fc_container {
+    width: 98%;
+    transition: transform 2s ease-in-out;
+  }
+}
+@media (min-width: 1360px) {
+  .fc_container {
+    width: 90%;
+    transition: transform 2s ease-in-out;
+  }
+}
+@media (min-width: 1460px) {
+  .fc_container {
+    width: 80%;
+    transition: transform 2s ease-in-out;
+  }
+}
+@media (min-width: 1560px) {
+  .fc_container {
+    width: 70%;
+    transition: transform 2s ease-in-out;
+  }
+}
+
+
+/* home Breakpoints */
+@media (max-width: 1360px) {
+  .boldlines {
+    width: 98%;
+    transition: transform 2s ease-in-out;
+  }
+}
+@media (min-width: 1360px) {
+  .boldlines {
+    width: 90%;
+    transition: transform 2s ease-in-out;
+  }
+}
+@media (min-width: 1460px) {
+  .boldlines {
+    width: 80%;
+    transition: transform 2s ease-in-out;
+  }
+}
+@media (min-width: 1560px) {
+  .boldlines {
+    width: 70%;
+    transition: transform 2s ease-in-out;
+  }
+}

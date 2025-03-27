@@ -3,7 +3,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import courseData from './courseData';
 import CoursesDiv from './courseDivTemp/CoursesBranch';
-import useHorizontalScroll from '../ScrollingFunction';
+import useHorizontalScroll from '../utils/ScrollingFunction';
 
 const FeaturedCourses = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,11 +40,7 @@ const FeaturedCourses = () => {
           </button>
         )}
       </div>
-
-      {/* Show only the selected branch */}
-      <div className="courseContent">
-        <CoursesDiv courseData={activeCourse.courseBranch} />
-      </div>
+      <CoursesDiv courseData={activeCourse.courseBranch} />
     </div>
   );
 };

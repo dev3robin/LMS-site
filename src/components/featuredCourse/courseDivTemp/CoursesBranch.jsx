@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import CourseCard from '../courseCard';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import useHorizontalScroll from '../../ScrollingFunction';
+import useHorizontalScroll from '../../utils/ScrollingFunction';
+import { Link } from 'react-router-dom';
 
 const CoursesDiv = ({ courseData, resetTrigger }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -25,9 +26,9 @@ const CoursesDiv = ({ courseData, resetTrigger }) => {
     setActiveIndex(index); // Update active index when a category is clicked
   };
   return (
-    <div className="dataScience">
+    <div className="coursesDivTemp">
       <div className="Nav" >
-      {showLeft1 && (
+        {showLeft1 && (
           <button onClick={() => scroll1('left')} className="scrollBtn left">
             <ArrowBackIosIcon sx={{ color: '#6D28D2' }} />
           </button>
@@ -49,21 +50,29 @@ const CoursesDiv = ({ courseData, resetTrigger }) => {
           </button>
         )}
       </div>
-      <div className="coursesDiv" ref={CourseCardScroll}>
+      <div className="coursesDivContainer">
         {showLeft2 && (
-            <button onClick={() => scroll2('left')} className="scrollBtn left">
-              <ArrowBackIosIcon sx={{ color: '#6D28D2' }} />
-            </button>
-          )}
-        {selectedCourses.map((course, index) => (
-          <CourseCard key={index} course={course} ref={CourseCardScroll}/>
-        ))}
+          <button onClick={() => scroll2('left')} className="scrollBtn left">
+            <ArrowBackIosIcon sx={{ color: '#6D28D2' }} />
+          </button>
+        )}
+        <ul className="coursesDiv" ref={CourseCardScroll}>
+          {selectedCourses.length > 0 &&
+            selectedCourses.map((course, index) => (
+              <Link to="/courseDetails"state={{ course }} key={index}>
+                <li key={index}>
+                  <CourseCard course={course} />
+                </li>
+              </Link>
+            ))}
+        </ul>
         {showRight2 && (
           <button onClick={() => scroll2('right')} className="scrollBtn right">
             <ArrowForwardIosIcon sx={{ color: '#6D28D2' }} />
           </button>
         )}
-      </div>
+    </div>
+
       <div className="courselink"><button>Sell all Data science course</button></div>
     </div>
   );
