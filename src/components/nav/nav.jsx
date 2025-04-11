@@ -98,7 +98,7 @@ const NavBar = () => {
           <Menu />
           <Link to="/">
             <div className="logo max-w-md items-center justify-center">
-              <img src="public\logo.PNG" alt=""/>
+              <img src="/logo.PNG" alt=""/>
             </div>
           </Link>
           <div className="searchDiv flex items-center relative justify-end gap-2.5">
