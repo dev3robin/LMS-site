@@ -1,7 +1,6 @@
 .swiper-container {
   position: relative;
   width: 100%;
-  max-width: 1260px;
   overflow: hidden;
 }
 .swiperContent {
@@ -55,10 +54,4 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-}
-
-@media screen and (min-width: 1560px) {
-  .swiper-container {
-    width: 70%;
-  }
 }

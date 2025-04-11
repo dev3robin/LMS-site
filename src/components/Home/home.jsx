@@ -4,10 +4,10 @@ import FeaturedCourses from '../featuredCourse/featuredCourses'
 
 const Home = () => {
   return (
-    <>
+    <div className='mainContent'>
       <HeroSection />
       <FeaturedCourses />
-    </>
+    </div>
   )
 }
 

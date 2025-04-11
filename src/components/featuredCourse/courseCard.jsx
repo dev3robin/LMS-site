@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 const CourseCard = ({ course }) => {
   return (

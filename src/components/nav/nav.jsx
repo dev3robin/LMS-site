@@ -11,7 +11,8 @@ import Switch from '@mui/material/Switch';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Menu from './sidemenu';
-import SearchBar from '../dashboard/components/search';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -81,7 +82,6 @@ const NavBar = () => {
   const handleThemeChange = (event) => {
     const isDarkMode = event.target.checked;
     const theme = isDarkMode ? 'dark' : 'light';
-    console.log(theme)
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   };
@@ -97,16 +97,28 @@ const NavBar = () => {
         <nav className='top-nav'>
           <Menu />
           <Link to="/">
-            <div className="logo">
+            <div className="logo max-w-md items-center justify-center">
               <img src="public\Capture.PNG" alt=""/>
             </div>
           </Link>
-          <div className="search-div"><SearchBar /></div>
-          <div className="cart"><ShoppingCartIcon /></div>
+          <div className="searchDiv flex items-center relative justify-end gap-2.5">
+            <div className="sBtn w-full flex items-center justify-end">
+              <input
+                type="text"
+                className="searchInput w-full rounded-3xl p-2.5 outline-0"
+                placeholder='Search'
+              />
+              <button className="absolute right-10 transition-opacity duration-300 focus-within:opacity-0">
+                <SearchIcon />
+              </button>
+            </div>
+            <div className="cart"><ShoppingCartIcon /></div>
+          </div>
+
           <div className="login"><Link to="/login"><Button>login</Button></Link></div>
           <div className="signup"><Link to="/signUp"><Button>signup</Button></Link></div>
           <div className="dashboard"><Link to="/dashboard"><Button>Dashboard</Button></Link></div>
-          <div className="relative lang">
+          <div className="lang relative">
             <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" />
               {showDropdown && (
                 <div className="absolute z-10 right-0 mt-2 w-40 bg-white text-black rounded-md shadow-lg">

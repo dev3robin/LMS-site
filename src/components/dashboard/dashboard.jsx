@@ -6,7 +6,8 @@ import HistogramChart from './chart';
 import MenuIcon from '@mui/icons-material/Menu';
 import LeftsideNav from './leftsidenav';
 import RightsideNav from './rightsidenav';
-import SearchBar from './components/search';
+import SearchIcon from '@mui/icons-material/Search';
+
 const Dashboard = () => {
   const [activeNav, setActiveNav] = useState(null); // 'left' or 'right'
   const toggleNav = (side) => {       
@@ -25,7 +26,17 @@ const Dashboard = () => {
               </div>
             </div>
             <div className={styles.dash}>Dashboard</div>
-            <SearchBar />
+            <div className={styles.searchDiv}>  
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className={styles.searchInput}
+                />
+                <button className={styles.searchBtn}>
+                  <SearchIcon />
+                </button>
+            </div>
+
           </div>
           <div className={styles.bodycontent}>
             <p>Hey, UserName</p>

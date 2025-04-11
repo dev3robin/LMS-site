@@ -1,10 +1,11 @@
 import React from 'react'
 import EmailIcon from '@mui/icons-material/Email';
+import { Link } from 'react-router-dom';
 const SignUp = () => {
   return (
     <div className='signup-container logsign'>
       <div><img src="./public/logSign-logo/signupImg.png" alt="" /></div>
-      <div className='signup-card card'>
+      <div className='signup-card lscard'>
         <div className="signupInput inclass">
           <div className='heading'><h1>Sign up with email</h1></div>
           <div className='checkP'><span><input type="checkbox" name="" id="" /></span><p>
@@ -24,7 +25,7 @@ const SignUp = () => {
         <footer>
           By signing up, you agree to our <span>Terms of use </span> and <span>Privacy policy</span>
         </footer>
-        <div className='switching'><span>Already have an account ?</span><li>Log in</li></div>
+        <div className='switching'><span>Already have an account ?</span><Link to="/login"><li>login</li></Link></div>
       </div>
     </div>
   )

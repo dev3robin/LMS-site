@@ -5,7 +5,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useHorizontalScroll from '../../utils/ScrollingFunction';
 import { Link } from 'react-router-dom';
 
-const CoursesDiv = ({ courseData, resetTrigger }) => {
+const CoursesDiv = ({ courseData }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedCourses, setSelectedCourses] = useState([]);
   const CourseNavScroll =useRef(null)
@@ -19,7 +19,7 @@ const CoursesDiv = ({ courseData, resetTrigger }) => {
       setSelectedCourses(courseData[0].courses);
       setActiveIndex(0);
     }
-  }, [courseData, resetTrigger]);
+  }, [courseData]);
 
   const handleCategoryClick = (courses, index) => {
     setSelectedCourses(courses);

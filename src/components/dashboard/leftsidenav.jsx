@@ -12,7 +12,7 @@ import styles from "./dashboard.module.css";
 
 const LeftsideNav = ({showNav,setActiveNav}) => {
   return (
-    <div className={`${styles.leftsidenav} ${showNav ? styles.show : ""}`}>
+  <div className={`${styles.leftsidenav} ${showNav ? styles.show : ""}`}>
     <div className={styles.profileitems}>
       <div className={styles.logo}>
         <Link to="/">

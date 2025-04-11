@@ -41,7 +41,7 @@
 }
 
 .top-nav {
-  padding: 15px 20px;
+  padding: 15px;
   text-align: center;
   transition: background-color 0.3s ease-in-out;
   display: flex;
@@ -56,4 +56,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.searchInput::placeholder{
+  opacity: 0;
+}
+.searchDiv:focus-within .searchInput{
+  border: 1px solid grey;
+}
+.searchDiv:focus-within .searchInput::placeholder{
+  opacity: 1;
 }

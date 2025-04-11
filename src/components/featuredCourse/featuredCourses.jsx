@@ -14,7 +14,6 @@ const FeaturedCourses = () => {
     setActiveIndex(index);
   };
   const activeCourse = courseData[activeIndex];
-
   return (
     <div className="fc_container">
       <div className="courseNav">

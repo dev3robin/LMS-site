@@ -31,7 +31,7 @@
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: var(--cardContentBg);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .Nav{
@@ -58,7 +58,6 @@
   width: 100%;
   overflow-x: scroll;
   scrollbar-width: none;
-  overflow-y: visible;
   padding:3rem 0px 5rem 0px;
   position: relative;
 
@@ -66,60 +65,44 @@
 .courseCard{
   display: flex;
   border: 1px solid grey;
-  /* position: relative; */
+  position: relative;
+  min-height: 400px;
+  max-width: 350px;
 }
 .courseDetailsHover{
   display: flex;
-  flex-direction: column;
   position: absolute;
+  flex-direction: column;
   background-color: black;
   color: white;
   text-wrap: wrap;
-  opacity: 0;
-  top: -10%;
   border-radius: 8px;
-  left: 105%;
   max-width: 340px;
   width: 340px;
   padding:10px 20px;
   pointer-events: none;
-  overflow: visible;
   border-radius: 10px;
-  z-index: 100;
-}
-.courseDetailsHover::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left:-25px;
-  transform: translateY(-50%);
-  border-width: 15px;
-  border-style: solid;
   opacity: 0;
-  border-color: transparent black transparent transparent;
-}
-
-.courseCard:hover .courseDetailsHover::before {
-  opacity: 1;
+  z-index: 100;
+  left: 105%;
+  top: -10%;
 }
 .courseCard:hover .courseDetailsHover{
   opacity: 1;
-  z-index: 2;
   pointer-events: auto;
-  overflow: visible;
 }
-
 .courseProfile{
   display: flex;
   flex-direction: column;
   text-wrap: nowrap;
-  height: 350px;
-  width: 280px;
+  max-height: 400px;
+  min-width: 300px;
+  max-width: 350px;
   overflow: hidden;
 }
 .thumlineImg{
-  max-height: 200px;
-  max-width: 300px;
+  max-height: 250px;
+  max-width: 350px;
 }
 .courseDetails h1{
   font-size: 1.2rem;
@@ -140,6 +123,7 @@
   line-height: normal;
   font-size: small;
   font-weight: 500;
+  height: fit-content;
 }
 
 

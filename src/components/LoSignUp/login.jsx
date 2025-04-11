@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Login= () => {
+  
   return (
     <div className="login-Container logsign">
       <div><img src="./public/logSign-logo/signupImg.png" alt="" /></div>
-      <div className="loginCard card">
+      <div className="loginCard lscard">
         <div className="loginInput inclass">
           <div className="heading"><h1>Log in continue your learning journey</h1></div>
           <div className='email'><input type="text"/><label >Email</label></div>
@@ -17,7 +19,7 @@ const Login= () => {
           <button><img src="./public/logSign-logo/facebook.png"  height='25px'width="25px"alt="" /></button>
           <button><img src="./public/logSign-logo/apple-logo.png"height='25px' width="25px" alt="" /></button>
         </div>
-        <div className='switching'><span>Dont't have an account</span><li>Sign up</li></div>
+        <div className='switching'><span>Dont't have an account</span><Link to="/signUp"><li>Sign up</li></Link></div>
       </div>
     </div>
   )
