@@ -1,0 +1,192 @@
+.coursesBtn{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+  gap: 10px;
+  background-color: transparent;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.coursesBtn::-webkit-scrollbar {
+  display: none;
+}
+
+.coursesBtn li{
+  background-color: #bfebf8;
+  padding: 20px;
+  color:black;
+  border-radius: 50px;
+}
+.coursesBtn li.active{
+  background-color: #6a6c85;
+}
+.coursesDivTemp{
+  width: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: var(--cardContentBg);
+  /* overflow: hidden; */
+}
+
+.Nav{
+  background-color: transparent ;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.coursesDivContainer{
+  background-color: transparent ;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.coursesDiv{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+  gap: 10px;
+  background-color: transparent;
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  padding:3rem 0px 5rem 0px;
+  position: relative;
+
+}
+.courseCard{
+  display: flex;
+  border: 1px solid grey;
+  position: relative;
+  min-height: 400px;
+  max-width: 350px;
+}
+.courseDetailsHover{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  text-wrap: wrap;
+  border-radius: 8px;
+  max-width: 340px;
+  width: 340px;
+  padding:10px 20px;
+  pointer-events: none;
+  border-radius: 10px;
+  opacity: 0;
+  z-index: 100;
+  left: 105%;
+  top: -10%;
+  transition:opacity .5s ;
+}
+.courseCard:hover .courseDetailsHover{
+  opacity: 1;
+  pointer-events: auto;
+}
+.courseProfile{
+  display: flex;
+  flex-direction: column;
+  text-wrap: nowrap;
+  max-height: 400px;
+  min-width: 300px;
+  max-width: 350px;
+  overflow: hidden;
+}
+.thumlineImg{
+  max-height: 250px;
+  max-width: 350px;
+}
+.courseDetails h1{
+  font-size: 1.2rem;
+  text-wrap: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+.courseDetails{
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  gap: 6px;
+  line-height: normal;
+  font-size: small;
+  font-weight: 500;
+  height: fit-content;
+}
+
+
+.courselink button{
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 5px;
+  
+}
+.courselink button:hover{
+  background-color: hsl(285, 100%, 91%);
+}
+.courseDetailsHover>div>button{
+  padding: 10px 0px;
+  background-color: #B832FD;
+  border: 1px solid grey;
+  width: 100%;
+  border-radius: 5px;
+
+}
+.btnDiv{
+  width: 100%;
+}
+.title{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.updateinfo{
+  color: green;
+  margin-bottom: 10px;
+}
+.updateinfo span{
+  background-color:#bfebf8;
+  padding: 2px 4px;
+  border-radius: 2px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+.details{
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.feature{
+  margin-bottom: 10px;
+  font-size: .9rem;
+}
+.describtion>ul li{
+  display: flex;
+  gap: 10px;
+}
+.describtion>ul{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.describtion{
+  margin-bottom: 10px;
+}
+.describtion p{
+  font-size: .8rem;
+}
+
+/* commting some thing is real */
+

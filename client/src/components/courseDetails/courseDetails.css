@@ -1,0 +1,286 @@
+/* .CDetailsDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+} */
+/* .CDetailsPro{
+  width: 100%;
+  background-color:#1D1E27;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  color: white;
+  align-items: center;
+} */
+.filepath, .CDetailsProfile{
+  width: 85%;
+  max-width: 1260px;
+  padding: 20px 0px;
+  display: flex;
+  align-items: start;
+}
+.filepath{
+  color: #C0C4FC;
+}
+.CDetailsProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.CDetailsProfile h1{
+  font-size: 2.5rem;
+}
+.CDetailscourseDetailsHover{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cdImg{
+  height: 350px;
+  width: 600px;
+}
+
+.whatUWL {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  padding: 30px;
+  width: 60%;
+  height: 50vh;
+  overflow: hidden;
+  margin-bottom: 2px;
+  transition: height 0.3s ease;
+  font-size: .9rem;
+}
+.whatUWL.expanded {
+  height: auto;
+}
+.contentP{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
+#toggleBtn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+#toggleBtn:hover {
+  background-color: #0056b3;
+}
+.CDetailsupdateinfo span{
+  background-color: #aaeacf;
+  padding: 3px ;
+  border-radius: 5px;
+  margin-right: 5px;
+  color: white;
+}
+.CDetailsupdateinfo{
+  color: #aaeacf;
+}
+/* preview card */
+
+.card {
+  width: 350px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.thumbnail {
+  position: relative;
+}
+.thumbnail img{
+  width: 100%;
+  aspect-ratio: 5/3;
+}
+.thumbnail .preview-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  color: var(--text);
+}
+
+.card-tabs div {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.card-tabs .active {
+  border-bottom: 2px solid #000;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.offer {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-to-cart {
+  background-color: #5624d0;
+  color: white;
+}
+
+.buy-now {
+  background-color: white;
+  border: 2px solid #5624d0;
+  color: #5624d0;
+}
+
+.guarantee {
+  font-size: 12px;
+  text-align: center;
+  color: gray;
+  margin: 10px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.coupon-box {
+  margin-top: 10px;
+}
+
+.coupon-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.coupon-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.coupon-input button {
+  padding: 10px 16px;
+  background-color: #5624d0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.or-divider {
+  text-align: center;
+  margin: 14px 0;
+  color: #aaa;
+}
+
+.subscribe-box {
+  text-align: center;
+  font-size: 14px;
+}
+
+.try-plan {
+  margin-top: 10px;
+  padding: 12px;
+  border: 2px solid #5624d0;
+  color: #5624d0;
+  background: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.CDetailsDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  align-items: center;
+
+}
+.CDetailsPro {
+  width: 100%;
+  background-color: #1D1E27;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.CDetailsContent {
+  width: 98%;
+  max-width: 1260px;
+
+}
+.cdproPrev{
+  position: relative;
+  display: flex;
+  width: 98%;
+  max-width: 1260px;
+
+}
+
+.previewDiv{
+  position: absolute;
+  right: 2%;
+  top: 10%;
+}
+.cdFilePro{
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  justify-content: start;
+}
