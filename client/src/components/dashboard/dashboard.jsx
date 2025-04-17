@@ -7,11 +7,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LeftsideNav from './leftsidenav';
 import RightsideNav from './rightsidenav';
 import SearchIcon from '@mui/icons-material/Search';
-
 const Dashboard = () => {
-  const [activeNav, setActiveNav] = useState(null); // 'left' or 'right'
+  const [activeNav, setActiveNav] = useState(null);
   const toggleNav = (side) => {       
-    setActiveNav((prev) => (prev === side ? null : side)); // Toggle between left, right, and closing
+    setActiveNav((prev) => (prev === side ? null : side)); 
   };
   return (
     <div className={styles.dashboard}>

@@ -9,10 +9,14 @@ import './components/footer/footer.css'
 import './components/LoSignUp/signUp.css'
 import './components/courseDetails/courseDetails.css'
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import {store} from "../src/redux/store.js"
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </StrictMode>,
 )

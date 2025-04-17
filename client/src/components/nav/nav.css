@@ -67,3 +67,29 @@
 .searchDiv:focus-within .searchInput::placeholder{
   opacity: 1;
 }
+
+.dashboardType{
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  background-color: #e1f3f8;
+  z-index: 1000;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 5px;
+  text-wrap: nowrap;
+}
+.dashboardType a{
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 5px;
+  gap: 5px;
+}
+.dashboardType a:hover{
+  background-color: aliceblue;
+}
+.dashboardBtn:focus-within + .dashboardType{
+  display: flex;
+}

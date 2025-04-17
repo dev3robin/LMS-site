@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "./otpInput";
 import Countdown from "./timer";
+import { login } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 function OtpCard() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
     const length=4;
     const [otp, setOtp] = useState(new Array(length).fill(""));
     const email = localStorage.getItem("email");
@@ -19,7 +22,8 @@ function OtpCard() {
 
     const data = await res.json();
     if (res.ok) {
-      navigate("/dashboard");
+      dispatch(login({ email }));
+      navigate("/student-dashboard");
     } else {
       alert(data.message || "OTP verification failed");
     }

@@ -12,7 +12,8 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Menu from './sidemenu';
 import SearchIcon from '@mui/icons-material/Search';
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import { useSelector } from 'react-redux';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -70,6 +71,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 const NavBar = () => {
+  const isloggedIn=useSelector((state)=>state.user.isLoggedIn)
+  console.log(isloggedIn);
+  
   const [showDropdown, setShowDropdown] = useState(false);
   const { i18n } = useTranslation();
   useEffect(() => {
@@ -117,7 +121,15 @@ const NavBar = () => {
 
           <div className="login"><Link to="/login"><Button>login</Button></Link></div>
           <div className="signup"><Link to="/signUp"><Button>signup</Button></Link></div>
-          <div className="dashboard"><Link to="/dashboard"><Button>Dashboard</Button></Link></div>
+          {isloggedIn && 
+            <div className="dashboardDiv relative ">
+              <div className="dashboardBtn"><Button onClick={()=> setShowDashType(true)}>Dashboard <span>&#x25BC;</span></Button></div>
+              <div className="dashboardType ">
+                <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>
+                <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>
+              </div>
+            </div>
+          }
           <div className="lang relative">
             <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" />
               {showDropdown && (

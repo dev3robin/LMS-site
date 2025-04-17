@@ -9,8 +9,9 @@ import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import "../nav/sidemenu.css"
+import { useSelector } from 'react-redux';
 
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -72,6 +73,7 @@ const Menu = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const { i18n } = useTranslation();
+  const isloggedIn=useSelector((state)=>state.user.isLoggedIn)
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -82,7 +84,6 @@ const Menu = () => {
   const handleThemeChange = (event) => {
     const isDarkMode = event.target.checked;
     const theme = isDarkMode ? 'dark' : 'light';
-    console.log(theme)
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   };
@@ -105,7 +106,14 @@ const Menu = () => {
               <div className="cart1"><Button><ShoppingCartIcon /></Button></div>
               <div className="login1"><Link to="/login"><Button>login</Button></Link></div>
               <div className="signup1"><Link to="/signUp"><Button>signup</Button></Link></div>
-              <div className="dashboard1"><Link to="/dashboard"><Button>Dashboard</Button></Link></div>
+              {isloggedIn && 
+                <div className="dashboard1">
+                  <div className="dashboardBtn1"><Button onClick={()=> setShowDashType(true)}>Dashboard <span>&#x25BC;</span></Button></div>
+                  <div className="dashboardType1">
+                    <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>
+                    <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>
+                  </div>
+              </div>}
               <div className="relative lang1">
                <Button> <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" /></Button>
                 {showDropdown && (

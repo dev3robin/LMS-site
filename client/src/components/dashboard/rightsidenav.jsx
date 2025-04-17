@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ClearIcon from '@mui/icons-material/Clear';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { faker } from '@faker-js/faker';
@@ -7,17 +7,40 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import '../dashboard/calender.css'
 import styles from "./dashboard.module.css";
-
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/userSlice";
+import { useNavigate } from 'react-router-dom';
 const RightsideNav = ({showNav,setActiveNav}) => {
+  const [isSettings,setIsSettings]=useState(false)
+  const navigate=useNavigate();
+  const dispatch = useDispatch();
+  
+  const handleLogout=()=>{
+    dispatch(logout())
+    setIsSettings(false)
+    navigate("/login")
+  }
+    
+  const handeleSelect=()=>{
+    setIsSettings(false)
+  }
   return (
       <div className={`${styles.rightsidenav} ${showNav ? styles.show : ""}`}>
+        <ul className={`${styles.settingsItems} ${isSettings ? styles.active : ""}`}>
+          <li onClick={handeleSelect}>profile</li>
+          <li onClick={handeleSelect}>Theme</li>
+          <li onClick={handeleSelect}>Lang</li>
+          <li onClick={handleLogout}>Logout</li>
+        </ul>
         <div className={styles.profileDiv}>
           <div className={styles.profile}>
             <div className={styles.img}><img src={faker.image.avatar()} alt="" />            </div>
             <div className={styles.title}> User name</div>
           </div>
           <div className={styles.buttondiv}>
-            <button><SettingsIcon /></button>
+            <div className={styles.settingsDiv}>
+              <div className={styles.settingsBtn}><button onClick={()=>setIsSettings(true)}><SettingsIcon /></button></div>
+            </div>
             <button className={styles.closeBtn} onClick={() => {setActiveNav(false)}}><ClearIcon /></button>
           </div>
         </div>

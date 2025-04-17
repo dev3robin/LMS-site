@@ -546,7 +546,28 @@ svg {
 .searchDiv:focus-within {
   width: 100%;
 }
-
+.settingsItems{
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px grey;
+  display: none;
+  
+}
+.settingsItems.active{
+  display: block;
+}
+.settingsBtn:hover + .settingsItems{
+  display: block;
+}
+.settingsItems li{
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.settingsItems li:hover{
+  background-color: lightblue;
+}
 
 @media screen and (max-width: 480px) {
   .dashboard{

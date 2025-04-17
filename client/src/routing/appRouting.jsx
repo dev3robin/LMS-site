@@ -5,16 +5,18 @@ import Login from "../components/LoSignUp/login";
 import CourseDetails from "../components/courseDetails/courseDetails";
 import Dashboard from "../components/dashboard/dashboard";
 import OtpCard from "../components/LoSignUp/otp";
+import TDashboard from "../components/dashboard/components/teacherDashboard";
 const AppRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/signUp" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/courseDetails" element={<CourseDetails />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/otpCard" element={<OtpCard />} />
-    </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/courseDetails" element={<CourseDetails />} />
+          <Route path="/student-dashboard" element={<Dashboard />} />
+          <Route path="/teacher-dashboard" element={<TDashboard />} />
+          <Route path="/otpCard" element={<OtpCard />} />
+        </Routes>
   );
 };
 
