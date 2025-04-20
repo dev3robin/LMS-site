@@ -26,6 +26,7 @@ const LeftsideNav = ({showNav,setActiveNav}) => {
         <li><button><AccountBoxIcon />Profile</button></li>
         <li><button><LibraryBooksIcon />Courses</button></li>
         <li><button><ShoppingCartIcon />Cart</button></li>
+        
         <li><button><FindInPageIcon />Documents</button></li>
         <li><button><SettingsIcon />Settings</button></li>
       </ul>

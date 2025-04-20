@@ -1,5 +1,5 @@
 
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState, useRef} from 'react';
 
 //importing icons
 import LanguageIcon from '@mui/icons-material/Language';
@@ -71,9 +71,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 const NavBar = () => {
-  const isloggedIn=useSelector((state)=>state.user.isLoggedIn)
-  console.log(isloggedIn);
-  
+  const isloggedIn=useSelector((state)=>state.user.isLoggedIn) 
+  const cartItems=useSelector(state=>state.cart.cartItems) 
   const [showDropdown, setShowDropdown] = useState(false);
   const { i18n } = useTranslation();
   useEffect(() => {
@@ -82,47 +81,44 @@ const NavBar = () => {
       document.documentElement.setAttribute('data-theme', savedTheme);
     }
   }, []);
-
   const handleThemeChange = (event) => {
     const isDarkMode = event.target.checked;
     const theme = isDarkMode ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   };
-
-
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setShowDropdown(false);
   };
-  
+
   return (
       <>
         <nav className='top-nav'>
           <Menu />
-          <Link to="/">
-            <div className="logo max-w-md items-center justify-center">
-              <img src="/logo.PNG" alt=""/>
-            </div>
-          </Link>
-          <div className="searchDiv flex items-center relative justify-end gap-2.5">
-            <div className="sBtn w-full flex items-center justify-end">
+          <div className="logoDiv flex w-full items-center justify-center">
+            <Link to="/">
+                <img className="logo"src="/logo.PNG" alt=""/>
+            </Link>
+          </div>
+          <div className="searchDiv relative flex items-center justify-end">
               <input
                 type="text"
-                className="searchInput w-full rounded-3xl p-2.5 outline-0"
+                className="searchInput w-full border-1 rounded-3xl p-2.5 outline-0"
                 placeholder='Search'
               />
-              <button className="absolute right-10 transition-opacity duration-300 focus-within:opacity-0">
+              <button className="absolute right-2 transition-opacity duration-300 focus-within:opacity-0">
                 <SearchIcon />
               </button>
-            </div>
-            <div className="cart"><ShoppingCartIcon /></div>
           </div>
-
+          <div className='cart'>
+            <Link to='/cart'><ShoppingCartIcon /></Link>
+            <span>{cartItems.length}</span>
+          </div>
           <div className="login"><Link to="/login"><Button>login</Button></Link></div>
           <div className="signup"><Link to="/signUp"><Button>signup</Button></Link></div>
           {isloggedIn && 
-            <div className="dashboardDiv relative ">
+            <div className="dashboard relative ">
               <div className="dashboardBtn"><Button onClick={()=> setShowDashType(true)}>Dashboard <span>&#x25BC;</span></Button></div>
               <div className="dashboardType ">
                 <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>

@@ -6,6 +6,7 @@ import CourseDetails from "../components/courseDetails/courseDetails";
 import Dashboard from "../components/dashboard/dashboard";
 import OtpCard from "../components/LoSignUp/otp";
 import TDashboard from "../components/dashboard/components/teacherDashboard";
+import Cart from "../components/cart/cart";
 const AppRoutes = () => {
   return (
         <Routes>
@@ -16,6 +17,7 @@ const AppRoutes = () => {
           <Route path="/student-dashboard" element={<Dashboard />} />
           <Route path="/teacher-dashboard" element={<TDashboard />} />
           <Route path="/otpCard" element={<OtpCard />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
   );
 };

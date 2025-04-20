@@ -4,12 +4,11 @@
   flex-direction: column;
   align-items: center;
   font-weight: bolder;
+  height: 50px;
   width: 100px;
 }
-.search{
-  padding: 10px;
-  border-radius: 25px;
-  border: 1px solid grey;
+.logoDiv{
+  padding-right: 10px;
 }
 .search input{
   outline: none;
@@ -41,15 +40,12 @@
 }
 
 .top-nav {
-  padding: 15px;
   text-align: center;
-  transition: background-color 0.3s ease-in-out;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgb(214, 214, 214);
-  flex-shrink: 1;
   width: 100%;
-  gap: 10px;
+  padding: 15px 5px;
 }
 
 .cartSearch{
@@ -90,6 +86,27 @@
 .dashboardType a:hover{
   background-color: aliceblue;
 }
-.dashboardBtn:focus-within + .dashboardType{
+.dashboard:hover .dashboardType {
   display: flex;
+}
+.cart{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.cart>span{
+position: absolute;
+background-color: rgba(167, 70, 236, 0.905);
+height: 20px;
+width:20px;
+align-items: center;
+display: flex;
+justify-content: center;
+border-radius: 50%;
+color: white;
+right: 0;
+top: 0;
+
 }

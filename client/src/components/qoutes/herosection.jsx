@@ -3,7 +3,7 @@ import Swiper from '../swiperPagination/swiper';
 import Pagination from '../swiperPagination/pagination';
 import BoldLines from './boldLines';
 const HeroSection = () => {
-  const slides=["/herosection_img/img2.jpg"  ,"/herosection_img/img1.jpg","/herosection_img/img3.png","/herosection_img/img4.png"]
+  const slides=["/herosection_img/img3.png","/herosection_img/img4.png"]
   const [currentIndex,setCurrentIndex]=useState(0)
   let autoPlayInterval;
 

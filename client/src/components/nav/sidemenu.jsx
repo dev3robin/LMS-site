@@ -108,7 +108,7 @@ const Menu = () => {
               <div className="signup1"><Link to="/signUp"><Button>signup</Button></Link></div>
               {isloggedIn && 
                 <div className="dashboard1">
-                  <div className="dashboardBtn1"><Button onClick={()=> setShowDashType(true)}>Dashboard <span>&#x25BC;</span></Button></div>
+                  <div className="dashboardBtn1"><Button>Dashboard <span>&#x25BC;</span></Button></div>
                   <div className="dashboardType1">
                     <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>
                     <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>

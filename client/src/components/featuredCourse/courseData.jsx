@@ -7,13 +7,15 @@ const courseData = [
         category: "ChatGpt",
         courses: [
           {
+            id: 1,
             title: "Mastering ChatGPT: From Beginner to Pro",
             creator: "John Doe",
             rating: 4.8,
-            price: "Free",
+            price: "$29.99",
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "ChatGPT for Developers",
             creator: "Jane Smith",
             rating: 4.5,
@@ -22,6 +24,7 @@ const courseData = [
           }
           ,
           {
+            id: 3,
             title: "ChatGPT Complete Guide: Learn Generative AI, ChatGPT & More",
             creator: "Julian Melanson,Benza Maman",
             rating: 4.5,
@@ -30,6 +33,7 @@ const courseData = [
           }
           ,
           {
+            id: 4,
             title: "The Complete AI-Powered Copywriting Course & ChatGPT Course",
             creator: "Ing. Tomas Moravek,Learn Digital Advertising",
             rating: 4.5,
@@ -38,6 +42,7 @@ const courseData = [
           }
           ,
           {
+            id: 5,
             title: "ChatGPT, DeepSeek, Grok and 30+ More AI Marketing Assistants",
             creator: "Jane Smith",
             rating: 4.5,
@@ -46,6 +51,7 @@ const courseData = [
           }
           ,
           {
+            id: 6,
             title: "Upgrade Your Social Media Presence with ChatGPT",
             creator: "Jane Smith",
             rating: 4.5,
@@ -55,9 +61,11 @@ const courseData = [
         ]
       },
       {
+        
         category: "Data Science",
         courses: [
           {
+            id: 1,
             title: "Data Science Bootcamp",
             creator: "Alice Johnson",
             rating: 4.9,
@@ -65,6 +73,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Data Science with Python",
             creator: "Bob Lee",
             rating: 4.7,
@@ -77,6 +86,7 @@ const courseData = [
         category: "Python",
         courses: [
           {
+            id: 1,
             title: "Python for Beginners",
             creator: "Emily Davis",
             rating: 4.6,
@@ -84,6 +94,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced Python Programming",
             creator: "Michael Scott",
             rating: 4.8,
@@ -96,6 +107,7 @@ const courseData = [
         category: "Machine Learning",
         courses: [
           {
+            id: 1,
             title: "Machine Learning A-Z",
             creator: "Sarah Connor",
             rating: 4.9,
@@ -103,6 +115,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Practical Machine Learning",
             creator: "Tom Hardy",
             rating: 4.7,
@@ -115,6 +128,7 @@ const courseData = [
         category: "Deep Learning",
         courses: [
           {
+            id: 1,
             title: "Deep Learning Specialization",
             creator: "Andrew Ng",
             rating: 5.0,
@@ -122,6 +136,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Introduction to Deep Learning",
             creator: "Jane Doe",
             rating: 4.6,
@@ -134,6 +149,7 @@ const courseData = [
         category: "Artificial Intelligence (AI)",
         courses: [
           {
+            id: 1,
             title: "AI for Everyone",
             creator: "Andrew Ng",
             rating: 4.8,
@@ -141,6 +157,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Building AI Models",
             creator: "John Wick",
             rating: 4.7,
@@ -153,6 +170,7 @@ const courseData = [
         category: "Statistics",
         courses: [
           {
+            id: 1,
             title: "Statistics for Data Science",
             creator: "Alan Turing",
             rating: 4.9,
@@ -160,6 +178,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Probability and Statistics",
             creator: "Marie Curie",
             rating: 4.8,
@@ -171,7 +190,8 @@ const courseData = [
       {
         category: "Natural Language Processing (NLP)",
         courses: [
-          {
+          { 
+            id: 1,
             title: "NLP with Python",
             creator: "Lex Fridman",
             rating: 4.9,
@@ -179,6 +199,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced NLP Techniques",
             creator: "Elon Musk",
             rating: 4.7,
@@ -197,6 +218,7 @@ const courseData = [
         category: "Amazon AWS",
         courses: [
           {
+            id: 1,
             title: "Mastering ChatGPT: From Beginner to Pro",
             creator: "John Doe",
             rating: 4.8,
@@ -204,6 +226,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "AWS Certified Cloud Practitioner",
             creator: "Jane Smith",
             rating: 4.5,
@@ -212,6 +235,7 @@ const courseData = [
           }
           ,
           {
+            id: 3,
             title: "AZ-900: Microsoft Azure Fundamentals",
             creator: "Julian Melanson,Benza Maman",
             rating: 4.5,
@@ -220,6 +244,7 @@ const courseData = [
           }
           ,
           {
+            id: 4,
             title: "AWS Certified Solutions Architect - Associate",
             creator: "Ing. Tomas Moravek,Learn Digital Advertising",
             rating: 4.5,
@@ -229,6 +254,7 @@ const courseData = [
           ,
 
           {
+            id: 5,
             title: "AWS Certified Developer - Associate",
             creator: "Jane Smith",
             rating: 4.5,
@@ -241,6 +267,7 @@ const courseData = [
         category: "AWS Certified Cloud Practitioner",
         courses: [
           {
+            id: 1,
             title: "Data Science Bootcamp",
             creator: "Alice Johnson",
             rating: 4.9,
@@ -248,6 +275,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Data Science with Python",
             creator: "Bob Lee",
             rating: 4.7,
@@ -260,6 +288,7 @@ const courseData = [
         category: "AZ-900: Microsoft Azure Fundamentals",
         courses: [
           {
+            id: 1,
             title: "Python for Beginners",
             creator: "Emily Davis",
             rating: 4.6,
@@ -267,6 +296,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced Python Programming",
             creator: "Michael Scott",
             rating: 4.8,
@@ -279,6 +309,7 @@ const courseData = [
         category: "WS Certified Solutions Architect - Associate",
         courses: [
           {
+            id: 1,
             title: "Machine Learning A-Z",
             creator: "Sarah Connor",
             rating: 4.9,
@@ -286,6 +317,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Practical Machine Learning",
             creator: "Tom Hardy",
             rating: 4.7,
@@ -298,6 +330,7 @@ const courseData = [
         category: "Kubernetes",
         courses: [
           {
+            id: 1,
             title: "Deep Learning Specialization",
             creator: "Andrew Ng",
             rating: 5.0,
@@ -305,6 +338,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Introduction to Deep Learning",
             creator: "Jane Doe",
             rating: 4.6,
@@ -317,6 +351,7 @@ const courseData = [
         category: "AWS Certified Developer - Associate",
         courses: [
           {
+            id: 1,
             title: "AI for Everyone",
             creator: "Andrew Ng",
             rating: 4.8,
@@ -324,6 +359,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Building AI Models",
             creator: "John Wick",
             rating: 4.7,
@@ -336,6 +372,7 @@ const courseData = [
         category: "Cisco Certified Network Associate (CCNA)",
         courses: [
           {
+            id: 1,
             title: "Statistics for Data Science",
             creator: "Alan Turing",
             rating: 4.9,
@@ -343,6 +380,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Probability and Statistics",
             creator: "Marie Curie",
             rating: 4.8,
@@ -355,6 +393,7 @@ const courseData = [
         category: "CompTIA Security+",
         courses: [
           {
+            id: 1,
             title: "NLP with Python",
             creator: "Lex Fridman",
             rating: 4.9,
@@ -362,6 +401,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced NLP Techniques",
             creator: "Elon Musk",
             rating: 4.7,
@@ -380,6 +420,7 @@ const courseData = [
         category: "Leadership",
         courses: [
           {
+            id: 1,
             title: "Mastering ChatGPT: From Beginner to Pro",
             creator: "John Doe",
             rating: 4.8,
@@ -387,6 +428,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "ChatGPT for Developers",
             creator: "Jane Smith",
             rating: 4.5,
@@ -394,7 +436,8 @@ const courseData = [
             thumbnail: faker.image.avatar()
           }
           ,
-          {
+          {            
+            id: 3,
             title: "ChatGPT Complete Guide: Learn Generative AI, ChatGPT & More",
             creator: "Julian Melanson,Benza Maman",
             rating: 4.5,
@@ -403,6 +446,7 @@ const courseData = [
           }
           ,
           {
+            id: 4,
             title: "The Complete AI-Powered Copywriting Course & ChatGPT Course",
             creator: "Ing. Tomas Moravek,Learn Digital Advertising",
             rating: 4.5,
@@ -411,6 +455,7 @@ const courseData = [
           }
           ,
           {
+            id: 5,
             title: "ChatGPT, DeepSeek, Grok and 30+ More AI Marketing Assistants",
             creator: "Jane Smith",
             rating: 4.5,
@@ -419,6 +464,7 @@ const courseData = [
           }
           ,
           {
+            id: 6,
             title: "Upgrade Your Social Media Presence with ChatGPT",
             creator: "Jane Smith",
             rating: 4.5,
@@ -431,6 +477,7 @@ const courseData = [
         category: "Management Skills",
         courses: [
           {
+            id: 1,
             title: "Data Science Bootcamp",
             creator: "Alice Johnson",
             rating: 4.9,
@@ -438,6 +485,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Data Science with Python",
             creator: "Bob Lee",
             rating: 4.7,
@@ -450,6 +498,7 @@ const courseData = [
         category: "Project Management",
         courses: [
           {
+            id: 1,
             title: "Python for Beginners",
             creator: "Emily Davis",
             rating: 4.6,
@@ -457,6 +506,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced Python Programming",
             creator: "Michael Scott",
             rating: 4.8,
@@ -469,6 +519,7 @@ const courseData = [
         category: "Personal Productivity",
         courses: [
           {
+            id: 1,
             title: "Machine Learning A-Z",
             creator: "Sarah Connor",
             rating: 4.9,
@@ -476,6 +527,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Practical Machine Learning",
             creator: "Tom Hardy",
             rating: 4.7,
@@ -488,6 +540,7 @@ const courseData = [
         category: "Emotional Intelligence",
         courses: [
           {
+            id: 1,
             title: "Deep Learning Specialization",
             creator: "Andrew Ng",
             rating: 5.0,
@@ -495,6 +548,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Introduction to Deep Learning",
             creator: "Jane Doe",
             rating: 4.6,
@@ -507,6 +561,7 @@ const courseData = [
         category: "Digital Transformation",
         courses: [
           {
+            id: 1,
             title: "AI for Everyone",
             creator: "Andrew Ng",
             rating: 4.8,
@@ -514,6 +569,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Building AI Models",
             creator: "John Wick",
             rating: 4.7,
@@ -526,6 +582,7 @@ const courseData = [
         category: "Business Strategy",
         courses: [
           {
+            id: 1,
             title: "Statistics for Data Science",
             creator: "Alan Turing",
             rating: 4.9,
@@ -533,6 +590,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Probability and Statistics",
             creator: "Marie Curie",
             rating: 4.8,
@@ -545,6 +603,7 @@ const courseData = [
         category: "Conflict Management",
         courses: [
           {
+            id: 1,
             title: "NLP with Python",
             creator: "Lex Fridman",
             rating: 4.9,
@@ -552,6 +611,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced NLP Techniques",
             creator: "Elon Musk",
             rating: 4.7,
@@ -570,6 +630,7 @@ const courseData = [
         category: "Web Development",
         courses: [
           {
+            id: 1,
             title: "Mastering ChatGPT: From Beginner to Pro",
             creator: "John Doe",
             rating: 4.8,
@@ -577,6 +638,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "ChatGPT for Developers",
             creator: "Jane Smith",
             rating: 4.5,
@@ -585,6 +647,7 @@ const courseData = [
           }
           ,
           {
+            id: 3,
             title: "ChatGPT Complete Guide: Learn Generative AI, ChatGPT & More",
             creator: "Julian Melanson,Benza Maman",
             rating: 4.5,
@@ -593,6 +656,7 @@ const courseData = [
           }
           ,
           {
+            id: 4,
             title: "The Complete AI-Powered Copywriting Course & ChatGPT Course",
             creator: "Ing. Tomas Moravek,Learn Digital Advertising",
             rating: 4.5,
@@ -601,6 +665,7 @@ const courseData = [
           }
           ,
           {
+            id: 5,
             title: "ChatGPT, DeepSeek, Grok and 30+ More AI Marketing Assistants",
             creator: "Jane Smith",
             rating: 4.5,
@@ -609,6 +674,7 @@ const courseData = [
           }
           ,
           {
+            id: 6,
             title: "Upgrade Your Social Media Presence with ChatGPT",
             creator: "Jane Smith",
             rating: 4.5,
@@ -621,6 +687,7 @@ const courseData = [
         category: "JavaScript",
         courses: [
           {
+            id: 1,
             title: "Data Science Bootcamp",
             creator: "Alice Johnson",
             rating: 4.9,
@@ -628,6 +695,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Data Science with Python",
             creator: "Bob Lee",
             rating: 4.7,
@@ -640,6 +708,7 @@ const courseData = [
         category: "React JS",
         courses: [
           {
+            id: 1,
             title: "Python for Beginners",
             creator: "Emily Davis",
             rating: 4.6,
@@ -647,6 +716,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced Python Programming",
             creator: "Michael Scott",
             rating: 4.8,
@@ -659,6 +729,7 @@ const courseData = [
         category: "Angular",
         courses: [
           {
+            id: 1,
             title: "Machine Learning A-Z",
             creator: "Sarah Connor",
             rating: 4.9,
@@ -666,6 +737,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Practical Machine Learning",
             creator: "Tom Hardy",
             rating: 4.7,
@@ -678,6 +750,7 @@ const courseData = [
         category: "Java",
         courses: [
           {
+            id: 1,
             title: "Deep Learning Specialization",
             creator: "Andrew Ng",
             rating: 5.0,
@@ -685,6 +758,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Introduction to Deep Learning",
             creator: "Jane Doe",
             rating: 4.6,
@@ -697,6 +771,7 @@ const courseData = [
         category: "Android Development",
         courses: [
           {
+            id: 1,
             title: "AI for Everyone",
             creator: "Andrew Ng",
             rating: 4.8,
@@ -704,6 +779,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Building AI Models",
             creator: "John Wick",
             rating: 4.7,
@@ -716,6 +792,7 @@ const courseData = [
         category: "iOS Development",
         courses: [
           {
+            id: 1,
             title: "Statistics for Data Science",
             creator: "Alan Turing",
             rating: 4.9,
@@ -723,6 +800,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Probability and Statistics",
             creator: "Marie Curie",
             rating: 4.8,
@@ -735,6 +813,7 @@ const courseData = [
         category: "CSS",
         courses: [
           {
+            id: 1,
             title: "NLP with Python",
             creator: "Lex Fridman",
             rating: 4.9,
@@ -742,6 +821,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced NLP Techniques",
             creator: "Elon Musk",
             rating: 4.7,
@@ -760,6 +840,7 @@ const courseData = [
         category: "Communication Skills",
         courses: [
           {
+            id: 1,
             title: "Mastering ChatGPT: From Beginner to Pro",
             creator: "John Doe",
             rating: 4.8,
@@ -767,6 +848,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "ChatGPT for Developers",
             creator: "Jane Smith",
             rating: 4.5,
@@ -775,6 +857,7 @@ const courseData = [
           }
           ,
           {
+            id: 3,
             title: "ChatGPT Complete Guide: Learn Generative AI, ChatGPT & More",
             creator: "Julian Melanson,Benza Maman",
             rating: 4.5,
@@ -783,6 +866,7 @@ const courseData = [
           }
           ,
           {
+            id: 4,
             title: "The Complete AI-Powered Copywriting Course & ChatGPT Course",
             creator: "Ing. Tomas Moravek,Learn Digital Advertising",
             rating: 4.5,
@@ -791,6 +875,7 @@ const courseData = [
           }
           ,
           {
+            id: 5,
             title: "ChatGPT, DeepSeek, Grok and 30+ More AI Marketing Assistants",
             creator: "Jane Smith",
             rating: 4.5,
@@ -799,6 +884,7 @@ const courseData = [
           }
           ,
           {
+            id: 6,
             title: "Upgrade Your Social Media Presence with ChatGPT",
             creator: "Jane Smith",
             rating: 4.5,
@@ -811,6 +897,7 @@ const courseData = [
         category: "Presentation Skills",
         courses: [
           {
+            id: 1,
             title: "Data Science Bootcamp",
             creator: "Alice Johnson",
             rating: 4.9,
@@ -818,6 +905,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Data Science with Python",
             creator: "Bob Lee",
             rating: 4.7,
@@ -830,6 +918,7 @@ const courseData = [
         category: "Public Speaking",
         courses: [
           {
+            id: 1,
             title: "Python for Beginners",
             creator: "Emily Davis",
             rating: 4.6,
@@ -837,6 +926,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced Python Programming",
             creator: "Michael Scott",
             rating: 4.8,
@@ -849,6 +939,7 @@ const courseData = [
         category: "Writing",
         courses: [
           {
+            id: 1,
             title: "Machine Learning A-Z",
             creator: "Sarah Connor",
             rating: 4.9,
@@ -856,6 +947,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Practical Machine Learning",
             creator: "Tom Hardy",
             rating: 4.7,
@@ -868,6 +960,7 @@ const courseData = [
         category: "PowerPoint",
         courses: [
           {
+            id: 1,
             title: "Deep Learning Specialization",
             creator: "Andrew Ng",
             rating: 5.0,
@@ -875,6 +968,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Introduction to Deep Learning",
             creator: "Jane Doe",
             rating: 4.6,
@@ -887,6 +981,7 @@ const courseData = [
         category: "Business Communication",
         courses: [
           {
+            id: 1,
             title: "AI for Everyone",
             creator: "Andrew Ng",
             rating: 4.8,
@@ -894,6 +989,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Building AI Models",
             creator: "John Wick",
             rating: 4.7,
@@ -906,6 +1002,7 @@ const courseData = [
         category: "Business Writing",
         courses: [
           {
+            id: 1,
             title: "Statistics for Data Science",
             creator: "Alan Turing",
             rating: 4.9,
@@ -913,6 +1010,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Probability and Statistics",
             creator: "Marie Curie",
             rating: 4.8,
@@ -925,6 +1023,7 @@ const courseData = [
         category: "Email Writing and Etiquette",
         courses: [
           {
+            id: 1,
             title: "NLP with Python",
             creator: "Lex Fridman",
             rating: 4.9,
@@ -932,6 +1031,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced NLP Techniques",
             creator: "Elon Musk",
             rating: 4.7,
@@ -950,6 +1050,7 @@ const courseData = [
         category: "Microsoft Excel",
         courses: [
           {
+            id: 1,
             title: "Mastering ChatGPT: From Beginner to Pro",
             creator: "John Doe",
             rating: 4.8,
@@ -957,6 +1058,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "ChatGPT for Developers",
             creator: "Jane Smith",
             rating: 4.5,
@@ -965,6 +1067,7 @@ const courseData = [
           }
           ,
           {
+            id: 3,
             title: "ChatGPT Complete Guide: Learn Generative AI, ChatGPT & More",
             creator: "Julian Melanson,Benza Maman",
             rating: 4.5,
@@ -973,6 +1076,7 @@ const courseData = [
           }
           ,
           {
+            id: 4,
             title: "The Complete AI-Powered Copywriting Course & ChatGPT Course",
             creator: "Ing. Tomas Moravek,Learn Digital Advertising",
             rating: 4.5,
@@ -981,6 +1085,7 @@ const courseData = [
           }
           ,
           {
+            id: 5,
             title: "ChatGPT, DeepSeek, Grok and 30+ More AI Marketing Assistants",
             creator: "Jane Smith",
             rating: 4.5,
@@ -989,6 +1094,7 @@ const courseData = [
           }
           ,
           {
+            id: 6,
             title: "Upgrade Your Social Media Presence with ChatGPT",
             creator: "Jane Smith",
             rating: 4.5,
@@ -1001,6 +1107,7 @@ const courseData = [
         category: "SQL",
         courses: [
           {
+            id: 1,
             title: "Data Science Bootcamp",
             creator: "Alice Johnson",
             rating: 4.9,
@@ -1008,6 +1115,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Data Science with Python",
             creator: "Bob Lee",
             rating: 4.7,
@@ -1020,6 +1128,7 @@ const courseData = [
         category: "Microsoft Power BI",
         courses: [
           {
+            id:1,
             title: "Python for Beginners",
             creator: "Emily Davis",
             rating: 4.6,
@@ -1027,6 +1136,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced Python Programming",
             creator: "Michael Scott",
             rating: 4.8,
@@ -1039,6 +1149,7 @@ const courseData = [
         category: "Data Analysis",
         courses: [
           {
+            id: 1,
             title: "Machine Learning A-Z",
             creator: "Sarah Connor",
             rating: 4.9,
@@ -1046,6 +1157,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Practical Machine Learning",
             creator: "Tom Hardy",
             rating: 4.7,
@@ -1058,6 +1170,7 @@ const courseData = [
         category: "Business Analysis",
         courses: [
           {
+            id: 1,
             title: "Deep Learning Specialization",
             creator: "Andrew Ng",
             rating: 5.0,
@@ -1065,6 +1178,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Introduction to Deep Learning",
             creator: "Jane Doe",
             rating: 4.6,
@@ -1077,6 +1191,7 @@ const courseData = [
         category: "Tableau",
         courses: [
           {
+            id: 1,
             title: "AI for Everyone",
             creator: "Andrew Ng",
             rating: 4.8,
@@ -1084,6 +1199,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Building AI Models",
             creator: "John Wick",
             rating: 4.7,
@@ -1096,6 +1212,7 @@ const courseData = [
         category: "Data Visualization",
         courses: [
           {
+            id: 1,
             title: "Statistics for Data Science",
             creator: "Alan Turing",
             rating: 4.9,
@@ -1103,6 +1220,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Probability and Statistics",
             creator: "Marie Curie",
             rating: 4.8,
@@ -1115,6 +1233,7 @@ const courseData = [
         category: "Data Modeling",
         courses: [
           {
+            id: 1,
             title: "NLP with Python",
             creator: "Lex Fridman",
             rating: 4.9,
@@ -1122,6 +1241,7 @@ const courseData = [
             thumbnail: faker.image.avatar()
           },
           {
+            id: 2,
             title: "Advanced NLP Techniques",
             creator: "Elon Musk",
             rating: 4.7,

@@ -22,7 +22,6 @@
 .menuicon {
   cursor: pointer;
   font-size: 30px;
-  padding: 10px;
 }
 
 .closeicon {
@@ -31,4 +30,30 @@
   position: absolute;
   top: 10px;
   right: 20px;
+}
+
+.dashboard1 {
+  position: relative;
+}
+
+.dashboardType1 {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+  background: #f7f9fe; /* just for visibility */
+  top: 100%;
+  left: 50px;
+  z-index: 100;
+  padding: 5px;
+}
+.dashboardType1 a{
+  padding: 5px;
+}
+.dashboardType1 a:hover{
+  background: lightblue;
+}
+.dashboard1:hover .dashboardType1{
+  display: flex;
 }

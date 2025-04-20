@@ -70,7 +70,7 @@
   max-width: 350px;
 }
 .courseDetailsHover{
-  display: flex;
+  display: none;
   position: absolute;
   flex-direction: column;
   background-color: black;
@@ -82,14 +82,13 @@
   padding:10px 20px;
   pointer-events: none;
   border-radius: 10px;
-  opacity: 0;
   z-index: 100;
   left: 105%;
   top: -10%;
-  transition:opacity .5s ;
+  transition:display .3s ;
 }
 .courseCard:hover .courseDetailsHover{
-  opacity: 1;
+  display: flex;
   pointer-events: auto;
 }
 .courseProfile{
@@ -137,14 +136,13 @@
 .courselink button:hover{
   background-color: hsl(285, 100%, 91%);
 }
-.courseDetailsHover>div>button{
+/* .courseDetailsHover>div>button{
   padding: 10px 0px;
   background-color: #B832FD;
   border: 1px solid grey;
   width: 100%;
   border-radius: 5px;
-
-}
+} */
 .btnDiv{
   width: 100%;
 }

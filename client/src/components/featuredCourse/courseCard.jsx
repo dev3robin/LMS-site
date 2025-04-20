@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import DoneIcon from '@mui/icons-material/Done';
 import { Link } from 'react-router-dom';
-const CourseCard = ({ course,activeBranch,activeCategory }) => {
+import { addToCart } from '../../redux/cartSlice';
+import AddedToCartDialog from '../cart/cartPop';
+const CourseCard = ({ course,activeBranch,activeCategory }) => {  
+  const [isOpen, setIsOpen] = useState(false)
+  const dispatch=useDispatch()
+  const handleAdd = (item) => {
+    setIsOpen(true);
+    dispatch(addToCart(item));
+  };
+
   return (
     <div className='courseCard'>
-       <Link to="/courseDetails"state={{ course ,activeBranch,activeCategory }}>
+      <Link to="/courseDetails"state={{ course ,activeBranch,activeCategory }}>
         <div className="courseProfile">
           <img src={course.thumbnail}  className="thumlineImg" />
           <div className="courseDetails">
@@ -20,8 +30,8 @@ const CourseCard = ({ course,activeBranch,activeCategory }) => {
         <div className="updateinfo"><span>Bestseller</span>Updated March 2025</div>
         <div className="details">32.5 total hoursAll LevelsSubtitles, CC</div>
         <div className="feature"><p>
-        25+ Generative AI Tools to 10x Business, Productivity,
-        Creativity | Prompt Engineering, ChatGPT, Custom GPTs,
+          25+ Generative AI Tools to 10x Business, Productivity,
+          Creativity | Prompt Engineering, ChatGPT, Custom GPTs,
           Midjourney
         </p></div>
         <div className='describtion'>
@@ -43,8 +53,15 @@ const CourseCard = ({ course,activeBranch,activeCategory }) => {
             </li>
           </ul>
         </div>
-        <div className='btnDiv'><button>Add to cart</button></div>
+        <div className='btnDiv'>
+          <button 
+            onClick={() => handleAdd(course)}
+            className='w-full bg-purple-600 rounded py-2.5 hover:bg-purple-500 active:bg-purple-800'
+            >
+              Add to cart</button>
+        </div>
       </div>
+      <AddedToCartDialog isOpen={isOpen} course={course} setIsOpen={setIsOpen}/>
     </div>
   );
 };
