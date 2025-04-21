@@ -8,14 +8,11 @@ import useHorizontalScroll from '../../utils/ScrollingFunction';
 const CoursesDiv = ({ courseData,activeBranch }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedCourses, setSelectedCourses] = useState([]);
-
   const [activeCategory,setActiveCategory]=useState('')
-
   const CourseNavScroll =useRef(null)
   const CourseCardScroll =useRef(null)
   const { scroll: scroll1, showLeftBtn: showLeft1, showRightBtn: showRight1 } = useHorizontalScroll(CourseNavScroll);
   const { scroll: scroll2, showLeftBtn: showLeft2, showRightBtn: showRight2 } = useHorizontalScroll(CourseCardScroll);  
-
 
   useEffect(() => {
     if (courseData.length > 0) {
@@ -66,7 +63,7 @@ const CoursesDiv = ({ courseData,activeBranch }) => {
           {selectedCourses.length > 0 &&
             selectedCourses.map((course, index) => (
                 <li key={index}>
-                  <CourseCard course={course} activeBranch={activeBranch} activeCategory={activeCategory} />
+                  <CourseCard course={course} activeBranch={activeBranch} activeCategory={activeCategory}selectedCourses={selectedCourses} />
                 </li>
 
             ))}

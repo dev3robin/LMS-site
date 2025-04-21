@@ -22,6 +22,7 @@ function OtpCard() {
 
     const data = await res.json();
     if (res.ok) {
+      localStorage.removeItem("email");
       dispatch(login({ email }));
       navigate("/student-dashboard");
     } else {
@@ -31,7 +32,6 @@ function OtpCard() {
 
   return (
     <div className="otp flex m-10 rounded-xs">
-      {/* <div><img src="/logSign-logo/signupImg.png" alt="" /></div> */}
       <form onSubmit={verifyOtp}className="shadow-xl p-4 flex flex-col items-center gap-4">
         <img src="/logSign-logo/otp.PNG" alt="" />
         <h2 className="">Verify email address</h2>

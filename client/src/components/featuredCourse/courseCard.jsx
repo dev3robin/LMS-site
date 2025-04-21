@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import DoneIcon from '@mui/icons-material/Done';
 import { Link } from 'react-router-dom';
-import { addToCart } from '../../redux/cartSlice';
 import AddedToCartDialog from '../cart/cartPop';
-const CourseCard = ({ course,activeBranch,activeCategory }) => {  
+const CourseCard = ({ course,activeBranch,activeCategory,selectedCourses }) => {  
   const [isOpen, setIsOpen] = useState(false)
-  const dispatch=useDispatch()
-  const handleAdd = (item) => {
+  const handleAdd = () => {
     setIsOpen(true);
-    dispatch(addToCart(item));
   };
 
   return (
@@ -55,13 +51,13 @@ const CourseCard = ({ course,activeBranch,activeCategory }) => {
         </div>
         <div className='btnDiv'>
           <button 
-            onClick={() => handleAdd(course)}
+            onClick={handleAdd}
             className='w-full bg-purple-600 rounded py-2.5 hover:bg-purple-500 active:bg-purple-800'
             >
               Add to cart</button>
         </div>
       </div>
-      <AddedToCartDialog isOpen={isOpen} course={course} setIsOpen={setIsOpen}/>
+      <AddedToCartDialog isOpen={isOpen} course={course} selectedCourses={selectedCourses} activeBranch={activeBranch} setIsOpen={setIsOpen}/>
     </div>
   );
 };

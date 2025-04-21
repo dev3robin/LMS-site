@@ -7,9 +7,11 @@ const Cart = () => {
   const dispatch=useDispatch()
   const cartItems=useSelector(state=>state.cart.cartItems)
   const totalBill = cartItems.reduce((acc, item) => {
-    const price = parseFloat(item.price.replace('$', ''));//as $ is in my price
+    if (!item || !item.price) return acc; // skip null or missing price
+    const price = parseFloat(item.price.replace('$', ''));
     return acc + (isNaN(price) ? 0 : price);
   }, 0).toFixed(2);
+  
   
   const len=cartItems.length
   return (
@@ -57,7 +59,7 @@ const Cart = () => {
           
           </div>}
       </div>
-      {cartItems.length ==0 &&
+      {cartItems.length == 0 &&
         <div className="border-1 border-gray-200 w-full mb-10 flex flex-col gap-3 items-center justify-center">
           <div><img src="./public/continue.PNG" alt="" /></div>
           <p>Your cart is empty. Keep shopping to find a course!</p>
