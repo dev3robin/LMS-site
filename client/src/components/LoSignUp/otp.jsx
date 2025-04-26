@@ -38,7 +38,7 @@ function OtpCard() {
         <p className="text-xs">Verification code sent to <span className="text-blue-300">{email}</span></p>
         <OtpInput length={length}otp={otp} setOtp={setOtp} />
         <button type="submit"className="bg-purple-500 w-full px-2.5 py-1.5 rounded">Verify OTP</button>
-        <div><Countdown /></div>
+        <div>Resend code in <Countdown time={2}  /></div>
       </form>
     </div>
   );

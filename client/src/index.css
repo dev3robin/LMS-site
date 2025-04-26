@@ -29,7 +29,7 @@ body {
 }
 /* Small Phones */
 @media screen and (min-width: 320px) and (max-width: 480px) {
-  .login, .signup, .dashboard, .lang, .theme{
+  .login, .signup, .dashboard,.assesment, .lang, .theme{
     display: none;
   }
   .logsign{
@@ -55,7 +55,7 @@ body {
   }
 }
 @media screen and (min-width: 481px) and (max-width: 576px) {
-  .login, .signup, .dashboard, .lang, .theme{
+  .login, .signup, .dashboard,.assesment, .lang, .theme{
     display: none;
   }
   .logsign{
@@ -86,7 +86,7 @@ body {
 
 /* Tablets */
 @media screen and (min-width: 577px) and (max-width: 768px) {
-  .login, .signup, .dashboard, .lang, .theme{
+  .login, .signup, .dashboard,.assesment, .lang, .theme{
     display: none;
   }
   .logsign{
@@ -113,7 +113,7 @@ body {
 
 /* Laptops */
 @media screen and (min-width: 769px) and (max-width: 992px) {
-  .dashboard, .lang, .theme{
+  .dashboard,.assesment, .theme{
     display: none;
   }
   .logoDiv{

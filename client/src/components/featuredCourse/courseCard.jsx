@@ -12,7 +12,7 @@ const CourseCard = ({ course,activeBranch,activeCategory,selectedCourses }) => {
     <div className='courseCard'>
       <Link to="/courseDetails"state={{ course ,activeBranch,activeCategory }}>
         <div className="courseProfile">
-          <img src={course.thumbnail}  className="thumlineImg" />
+          <div className='max-h-[250px] max-w-[350px] overflow-hidden'><img src={course.thumbnail}  className="thumlineImg " /></div>
           <div className="courseDetails">
             <h1>{course.title}</h1>
             <p className="creatorDetails">By {course.creator}</p>

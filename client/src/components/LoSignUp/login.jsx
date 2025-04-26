@@ -21,7 +21,7 @@ const Login= () => {
       alert(data.message || "Failed to send OTP");
     }
   };
-  
+
   return (
     <div className="login-Container logsign">
       <div><img src="/logSign-logo/signupImg.png" alt="" /></div>

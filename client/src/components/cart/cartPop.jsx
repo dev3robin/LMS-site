@@ -77,8 +77,6 @@ const AddedToCartDialog = ({ isOpen, setIsOpen,course,selectedCourses }) => {
 
 
           </div>
-          
-          
         </div>
       </div>
     </Dialog>

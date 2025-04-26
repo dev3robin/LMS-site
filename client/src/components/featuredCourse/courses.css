@@ -101,8 +101,10 @@
   overflow: hidden;
 }
 .thumlineImg{
-  max-height: 250px;
-  max-width: 350px;
+  transition: transform 0.3s ease;
+}
+.thumlineImg:hover{
+   transform: scale(1.1);
 }
 .courseDetails h1{
   font-size: 1.2rem;

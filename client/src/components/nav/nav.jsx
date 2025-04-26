@@ -1,5 +1,5 @@
 
-import React,{useEffect,useState, useRef} from 'react';
+import React,{useEffect,useState} from 'react';
 
 //importing icons
 import LanguageIcon from '@mui/icons-material/Language';
@@ -125,6 +125,14 @@ const NavBar = () => {
                 <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>
               </div>
             </div>
+          }
+          {isloggedIn && 
+            <div className='assesment'>
+              <Link to="/assesment"><Button>Assesment</Button></Link>
+            </div>}
+          {isloggedIn && 
+            <div className="notes"><Link to='/notes'><Button>Notes</Button></Link>
+          </div>
           }
           <div className="lang relative">
             <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" />

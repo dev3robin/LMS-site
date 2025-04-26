@@ -107,6 +107,10 @@ const Menu = () => {
               <div className="login1"><Link to="/login"><Button>login</Button></Link></div>
               <div className="signup1"><Link to="/signUp"><Button>signup</Button></Link></div>
               {isloggedIn && 
+                <div className='assesment'>
+                  <Link to="/assesment"><Button>Assesment</Button></Link>
+                </div>}
+              {isloggedIn && 
                 <div className="dashboard1">
                   <div className="dashboardBtn1"><Button>Dashboard <span>&#x25BC;</span></Button></div>
                   <div className="dashboardType1">

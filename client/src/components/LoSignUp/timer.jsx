@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 
-function Countdown() {
-  const [timeLeft, setTimeLeft] = useState(120);
+function Countdown({time}) {
+  const [timeLeft, setTimeLeft] = useState(0);
+  useEffect(() => {
+    if (time) {
+      setTimeLeft(time * 60);
+    }
+  }, [time]);
   useEffect(() => {
     if (timeLeft === 0) {
       return;
@@ -19,7 +24,7 @@ function Countdown() {
 
   return (
     <div>
-      <h2>Resend code in {formatTime(timeLeft)}</h2>
+      {formatTime(timeLeft)}
     </div>
   );
 }
