@@ -107,7 +107,11 @@ const Menu = () => {
               <div className="login1"><Link to="/login"><Button>login</Button></Link></div>
               <div className="signup1"><Link to="/signUp"><Button>signup</Button></Link></div>
               {isloggedIn && 
-                <div className='assesment'>
+                <div className="notes1"><Link to='/notes'><Button>Notes</Button></Link>
+              </div>
+              }
+              {isloggedIn && 
+                <div className='assesment1'>
                   <Link to="/assesment"><Button>Assesment</Button></Link>
                 </div>}
               {isloggedIn && 

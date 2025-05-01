@@ -1,27 +1,39 @@
 import React from 'react'
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom'
-
+import emailjs from '@emailjs/browser';
+import { setOtpData } from '../../redux/otpSlice';
+import { useDispatch } from 'react-redux';
 const Login= () => {
   const [email, setEmail] = useState("");
   const navigate=useNavigate()
+  const dispatch=useDispatch()
+
+  const SERVICE_ID = 'service_w4tq7db';
+  const TEMPLATE_ID = 'template_toocchm';
+  const PUBLIC_KEY = '-omfr_kN7GSPMGend';
+
+  const genOtp = Math.floor(1000 + Math.random() * 9000).toString();
+  
   const sendOtp = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:8080/send-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
+    const templateParams = {
+      user_email: email,
+      message: `Your OTP is: ${genOtp}`,
+    };
 
-    const data = await res.json();
-    if (res.ok) {
-      localStorage.setItem("email", email); // Store email for OTP step
-      navigate("/otpCard");
-    } else {
-      alert(data.message || "Failed to send OTP");
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      alert(`OTP sent to ${email}`);
+      dispatch(setOtpData({ email, otp: genOtp }));
+      setEmail('')
+      navigate("/otpCard")
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      alert('Failed to send OTP. Please try again.');
     }
   };
-
   return (
     <div className="login-Container logsign">
       <div><img src="/logSign-logo/signupImg.png" alt="" /></div>

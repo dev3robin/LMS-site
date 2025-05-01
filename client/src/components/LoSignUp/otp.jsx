@@ -1,34 +1,33 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "./otpInput";
 import Countdown from "./timer";
 import { login } from "../../redux/userSlice";
-import { useDispatch } from "react-redux";
+import { resetOtpData } from "../../redux/otpSlice";
 
 function OtpCard() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-    const length=4;
-    const [otp, setOtp] = useState(new Array(length).fill(""));
-    const email = localStorage.getItem("email");
+  const length=4;
+  const [otp, setOtp] = useState(new Array(length).fill(""));
 
-  const verifyOtp = async (e) => {
+  const storedOtp = useSelector(state => state.otp.otp);
+  const email = useSelector(state => state.otp.email);
+
+  const verifyOtp = (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:8080/verify-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, otp: otp.join("") }),
-    });
+    const enteredOtp = otp.join("");
 
-    const data = await res.json();
-    if (res.ok) {
-      localStorage.removeItem("email");
+    if (enteredOtp === storedOtp) {
+      dispatch(resetOtpData());
       dispatch(login({ email }));
       navigate("/student-dashboard");
     } else {
-      alert(data.message || "OTP verification failed");
+      alert("Invalid OTP. Please try again.");
     }
   };
+
 
   return (
     <div className="otp flex m-10 rounded-xs">

@@ -1,11 +1,19 @@
 import React from 'react'
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsPreview } from '../../redux/coursePreview';
+import VideoPlayer from './videoPlayer';
 const PreviewCard = ({course}) => {
+  const {isPreview}=useSelector((state)=>state.preview)
+  const dispatch=useDispatch()
+
+  
   return (
     <>
       <div className="card">
         <div className="thumbnail">
           <img src={course.thumbnail}/>
-          <div className="preview-btn">Preview this course</div>
+          <div className="preview-btn" onClick={()=>dispatch(setIsPreview(true))}><span><PlayCircleIcon sx={{fontSize:"80px"}} /></span><span className='px-3 py-1 rounded-sm bg-black/50'>Preview this course</span></div>
         </div>
 
         <div className="card-tabs">
@@ -14,7 +22,7 @@ const PreviewCard = ({course}) => {
         </div>
 
         <div className="card-content">
-          <div className="price">$10.99 <span className="original-price">$74.99</span> 85% off</div>
+          <div className="price">$10.99 <span className="original-price">{course.price}</span> 85% off</div>
           <div className="offer">⏰ 1 day left at this price!</div>
 
           <button className="btn add-to-cart">Add to cart</button>
@@ -53,6 +61,7 @@ const PreviewCard = ({course}) => {
           </div>
         </div>
       </div>
+      {isPreview && <VideoPlayer course={course}/>}
     </>
   )
 }
