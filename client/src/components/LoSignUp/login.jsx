@@ -24,7 +24,6 @@ const Login= () => {
 
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-      alert(`OTP sent to ${email}`);
       dispatch(setOtpData({ email, otp: genOtp }));
       setEmail('')
       navigate("/otpCard")
