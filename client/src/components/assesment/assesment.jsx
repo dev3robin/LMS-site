@@ -14,10 +14,10 @@ const Assesment = () => {
       <header className='text-2xl'>Assessments</header>
       <p>Complete quizzes and tests to evaluate your understanding of course material.</p>
       
-      <ul className='flex gap-2.5 bg-gray-200 rounded-sm w-fit'>
-        {tabs.map((item, index) => (
+    <ul className="flex gap-[.625rem] text-[.8rem] sm:text-[.8rem] md:text-[.9rem] lg:text-[1rem] bg-gray-200 rounded-sm w-fit">
+      {tabs.map((item, index) => (
           <li
-            className={`px-5 py-1 hover:bg-amber-50 cursor-pointer rounded m-1 ${activeIndex === index ? 'bg-amber-100' : ''}`}
+            className={`px-5 py-1 hover:bg-amber-50 flex items-center cursor-pointer rounded m-1 ${activeIndex === index ? 'bg-amber-100' : ''}`}
             key={index}
             onClick={() => handleClick(index)}
           >
@@ -26,7 +26,7 @@ const Assesment = () => {
         ))}
       </ul>
 
-      <div className='flex gap-2.5 mt-2.5 mb-5 flex-wrap'>
+      <div className='flex gap-[.625rem] text-[1rem] mt-2.5 mb-5 flex-wrap'>
         {assessmentsCard
           .filter((asse) => {
             if (activeIndex === 0) return asse.status === "not-started"

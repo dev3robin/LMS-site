@@ -17,8 +17,8 @@ const Cart = () => {
   return (
     <div className='cartcomponent  flex flex-col w-[90%]  max-w-[1260px]'>
       <header className='mt-5 mb-6 text-5xl font-bold'>Your Cart wallet</header>
-      <div className="itemdetails grid grid-cols-6 grid-rows-7 gap-1 mb-5">
-        <div className="itemspart col-span-4 row-span-7">
+      <div className="itemdetails flex flex-col md:grid md:grid-cols-6 md:grid-rows-7 gap-1 mb-5">
+        <div className="itemspart  md:col-span-4 md:row-span-7">
           <h2 className='mt-2 mb-2'><span>{len}</span> Courses in cart</h2>
           {cartItems.map((item,index)=>{
             return(
@@ -44,7 +44,7 @@ const Cart = () => {
           })}
         </div>
         {cartItems.length > 0 &&
-          <div className="billingpart  flex flex-col col-span-2 px-1 py-1 row-span-7 col-start-5 gap-2">
+          <div className="billingpart flex flex-col md:col-span-2 md:px-1 md:py-1 md:row-span-7 md:col-start-5 gap-2">
             <h2>Total</h2>
             <h1>${totalBill}</h1>
             <button className='py-2 bg-purple-700 w-full rounded font-bold text-white'>Proceed to Checkout<ArrowRightAltIcon /></button>
@@ -54,9 +54,7 @@ const Cart = () => {
             <div className="discount flex gap-2.5 mt-">
               <input className='border-1 px-2 rounded' type="text"placeholder='Enter Coupon' />
               <button className=' bg-purple-700 w-full rounded text-white py-1.5'>Apply</button>
-
             </div>
-          
           </div>}
       </div>
       {cartItems.length == 0 &&

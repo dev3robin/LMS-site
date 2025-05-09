@@ -103,19 +103,19 @@ const Menu = () => {
               <div className="closeicon" onClick={toggleSidebar}>
                 <CloseIcon />
               </div>
-              <div className="cart1"><Button><ShoppingCartIcon /></Button></div>
-              <div className="login1"><Link to="/login"><Button>login</Button></Link></div>
-              <div className="signup1"><Link to="/signUp"><Button>signup</Button></Link></div>
+              <div className="cart1"  onClick={toggleSidebar}><Button ><ShoppingCartIcon /></Button></div>
+              <div className="login1"  onClick={toggleSidebar}><Link to="/login"><Button>login</Button></Link></div>
+              <div className="signup1" onClick={toggleSidebar}><Link to="/signUp"><Button>signup</Button></Link></div>
               {isloggedIn && 
-                <div className="notes1"><Link to='/notes'><Button>Notes</Button></Link>
+                <div className="notes1" onClick={toggleSidebar}><Link to='/notes'><Button>Notes</Button></Link>
               </div>
               }
               {isloggedIn && 
-                <div className='assesment1'>
+                <div className='assesment1' onClick={toggleSidebar}>
                   <Link to="/assesment"><Button>Assesment</Button></Link>
                 </div>}
               {isloggedIn && 
-                <div className="dashboard1">
+                <div className="dashboard1" onClick={toggleSidebar}>
                   <div className="dashboardBtn1"><Button>Dashboard <span>&#x25BC;</span></Button></div>
                   <div className="dashboardType1">
                     <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>

@@ -11,6 +11,7 @@ const AddedToCartDialog = ({ isOpen, setIsOpen,course,selectedCourses }) => {
   const dispatch=useDispatch()
   const Addtocart=(course)=>{
     dispatch(addToCart(course))
+    setIsOpen(false)
   }
 
   return (

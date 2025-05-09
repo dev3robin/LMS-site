@@ -5,10 +5,14 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  min-width: 320px;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
 }
-
+html {
+  font-size: 16px;
+}
 body {
   background-color: var(--background);
   color: var(--text);
@@ -28,8 +32,13 @@ body {
   width: 100%;
   max-width: 1260px;
 }
+
 /* Small Phones */
-@media screen and (min-width: 320px) and (max-width: 480px) {
+@media screen  and (max-width: 480px) {
+
+  .top-nav{
+    background-color: aqua !important;
+  }
   .login, .signup, .dashboard,.assesment, .lang, .theme,.notes{
     display: none;
   }
@@ -54,8 +63,15 @@ body {
   .searchDiv:focus-within {
     width: 100%;
   }
+  .notenav{
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 576px) {
+  .top-nav{
+    background-color: red !important;
+  }
   .notes,.login, .signup, .dashboard,.assesment, .lang, .theme{
     display: none;
   }
@@ -82,11 +98,18 @@ body {
   .searchDiv:focus-within{
     width: 100%;
   }
+  .notenav{
+    display: flex;
+    flex-direction: column;
+  }
   
 }
 
 /* Tablets */
 @media screen and (min-width: 577px) and (max-width: 768px) {
+  .top-nav{
+    background-color: yellowgreen !important;
+  }
   .login, .signup, .dashboard,.assesment,.notes, .lang, .theme{
     display: none;
   }
@@ -110,10 +133,17 @@ body {
     width: 100%;
     min-width: 390px;
   }
+  .notenav{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Laptops */
 @media screen and (min-width: 769px) and (max-width: 992px) {
+  .top-nav{
+    background-color: olive !important;
+  }
   .assesment,.notes, .theme{
     display: none;
   }
@@ -128,6 +158,9 @@ body {
 
 /* Desktops */
 @media screen and (min-width: 993px) {
+  .top-nav{
+    background-color: green !important;
+  }
   .logoDiv{
     width: fit-content;
     min-width: 120px;

@@ -36,16 +36,17 @@ const QuizzBox = ({assesment}) => {
       <div className="fixed inset-0 bg-black/20" aria-hidden="true" />
       <div className="fixed inset-0 flex flex-col items-center justify-center px-4">
         <div
-          className=" w-[60%] bg-[#F6F7F9] rounded-2xl"
+          className=" w-[60%] text-[16px] bg-[#F6F7F9] rounded-2xl"
           role="dialog"
           aria-modal="true"
           aria-labelledby="added-to-cart-title"
+
         >
           {/* Header */}
           <div className='p-6'>
             <div className="flex items-center justify-between mb-10">
               <div className='flex flex-col'>
-                <h2 id="added-to-cart-title" className="text-lg font-bold">
+                <h2 id="added-to-cart-title" className="text-[2rem] font-bold">
                   {assesment.title}
                 </h2>
                 <h3>{assesment.courseName}</h3>
