@@ -60,7 +60,7 @@ const AddedToCartDialog = ({ isOpen, setIsOpen,course,selectedCourses }) => {
               .filter(item => item.id !== course.id)
               .slice(0, 3)
               .map((item) => (
-                <div class="grid grid-cols-9 grid-rows-3 gap-5">
+                <div class="grid grid-cols-9 grid-rows-3 gap-5" key={item.id}>
                   <div class="col-span-3 row-span-3"><img className='aspect-[5/3]' src={item.thumbnail} alt="" /></div>
                   <div class="col-span-4 row-span-3 col-start-4">
                     <p className='font-bold text-sm'>{item.title}</p>

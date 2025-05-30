@@ -21,6 +21,9 @@ const NoteCreator = ({noteCreator,handleClose}) => {
     const handleIndex=(index)=>{
       setActiveIndex(index)
     }
+    const handleBranch=(index)=>{
+      setBranch(courseBranch[index])
+    }
     const handleTitle=(e)=>{
       setTitle(e.target.value)
     }
@@ -28,9 +31,6 @@ const NoteCreator = ({noteCreator,handleClose}) => {
       setType(e.target.checked ? 'Public' : 'Private');
     };
 
-    const handleBranch=(index)=>{
-      setBranch(courseBranch[index])
-    }
     const handleDescribtion=(e)=>{
       setDescribtion(e.target.value)
     }
@@ -48,7 +48,6 @@ const addNote = async () => {
     Date: Date.now()
   };
   await saveNote(note);
-  console.log(note)
 };
 
 
@@ -131,7 +130,7 @@ const addNote = async () => {
           <textarea rows={8} 
             onChange={(e)=>handleDescribtion(e)}
             value={describtion}
-            className='w-full border-1 resize-none outline-0 border-gray-300 rounded-xl p-2' name="" id="" placeholder='Wriute your note content here...'></textarea>
+            className='w-full border-1 resize-none outline-0 border-gray-300 rounded-xl p-2' name="" id="" placeholder='Write your note content here...'></textarea>
         </div>
         
         <div>

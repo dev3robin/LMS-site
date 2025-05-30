@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import styles from "./dashboard.module.css";
 
-const LeftsideNav = ({showNav,setActiveNav}) => {
+const LeftsideNav = ({showNav,setActiveNav,leftRef}) => {
   return (
-  <div className={`${styles.leftsidenav} ${showNav ? styles.show : ""}`}>
+  <div ref={leftRef} className={`${styles.leftsidenav} ${showNav ? styles.show : ""}`}>
     <div className={styles.profileitems}>
       <div className={styles.logo}>
         <Link to="/">

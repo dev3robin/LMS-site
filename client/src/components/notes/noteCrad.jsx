@@ -1,19 +1,38 @@
 import React from 'react'
-
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import ShareIcon from '@mui/icons-material/Share';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import DownloadIcon from '@mui/icons-material/Download';
 const NoteCard = ({note}) => {
+  const readableDate = new Date(note.Date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
   return (
-    <div className='bg-white shadow-md border-1 border-gray-300 rounded-xl p-2 w-full sm:w-[100%] md:w-[50%] lg:w-[50%] xl:w-[40%]  '>
-      <div>
-        <h1>{note.Title}</h1>
+    <div className='flex flex-col gap-1 h-fit bg-white shadow-md border-1 text-gray-500 border-gray-300 rounded-xl px-5 py-2 w-full md:w-[48%] lg:w-[32%] '>
+      <div className='flex items-center justify-between'>
+        <h1 className='text-black'>{note.Title}</h1>
+        <span
+          className={`px-2 shadow-xl border border-gray-300 rounded-2xl text-sm ${
+            note.Type === 'Public' ? 'bg-green-100 text-green-600' : ''
+          }`}
+        >
+          {note.Type}
+        </span>
       </div>
-      <div><span>{note.id}</span></div>
-      <div>branch</div>
-      <div>describtion</div>
-      <hr />
-      <section className='flex gap-2'>
-        <div>date</div>
-        <div>share</div>
-        <div>download</div>
+      <div className='mb-3'>{note.Branch}</div>
+      <div className='mb-2'>{note.Describtion}</div>
+      <div className='text-gray-200'><hr /></div>
+      <section className='flex gap-2 p-4 items-center justify-between '>
+        <div className='text-[.7rem] flex gap-1'><span><CalendarMonthIcon sx={{fontSize:".8rem"}} /></span>{readableDate}</div>
+        <div className='flex gap-5'>
+          <div><BookmarkBorderIcon sx={{fontSize:".8rem"}}/></div>
+          <div><ShareIcon sx={{fontSize:".8rem"}}/></div>
+          <div><a href={note.File} download target="_blank" rel="noopener noreferrer">
+            <DownloadIcon sx={{ fontSize: ".9rem", cursor: "pointer" }} />
+          </a></div>
+        </div>
       </section>
 
     </div>

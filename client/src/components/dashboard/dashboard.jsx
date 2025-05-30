@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState,useRef,useEffect } from 'react'
+import { gsap } from 'gsap';
 import '../dashboard/calender.css'
 import styles from "./dashboard.module.css";
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
@@ -12,10 +13,14 @@ const Dashboard = () => {
   const toggleNav = (side) => {       
     setActiveNav((prev) => (prev === side ? null : side)); 
   };
+  const leftRef = useRef(null);
+  const middleRef = useRef(null);
+  const rightRef = useRef(null);
+
   return (
     <div className={styles.dashboard}>
-        <LeftsideNav showNav={activeNav === 'left'} setActiveNav={setActiveNav} />
-        <div className={styles.mainBody}>
+        <LeftsideNav showNav={activeNav === 'left'} leftRef={leftRef} setActiveNav={setActiveNav} />
+        <div className={styles.mainBody}ref={middleRef}>
           <div className={styles.topnav}>
             <div className={styles.dashmenu}>
               <div className={styles.menu} ><MenuIcon /></div>
@@ -104,7 +109,7 @@ const Dashboard = () => {
             </svg>
           </div>
         </div>
-        <RightsideNav showNav={activeNav === 'right'}setActiveNav={setActiveNav}/>
+        <RightsideNav showNav={activeNav === 'right'} rightRef={rightRef} setActiveNav={setActiveNav}/>
     </div>
   )
 }

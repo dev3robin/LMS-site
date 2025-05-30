@@ -1,5 +1,6 @@
-import React from 'react'
-import { useState } from "react";
+
+import { gsap } from 'gsap';
+import { useState,useEffect,useRef} from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import emailjs from '@emailjs/browser';
 import { setOtpData } from '../../redux/otpSlice';
@@ -9,10 +10,22 @@ const Login= () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
 
+  const loginRef = useRef(null);
+
+  useEffect(() => {
+    if (loginRef.current) {
+      gsap.fromTo(
+        loginRef.current,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+      );
+    }
+  }, []);
+
   const SERVICE_ID = 'service_w4tq7db';
   const TEMPLATE_ID = 'template_toocchm';
   const PUBLIC_KEY = '-omfr_kN7GSPMGend';
-
+  
   const genOtp = Math.floor(1000 + Math.random() * 9000).toString();
   
   const sendOtp = async (e) => {
@@ -24,7 +37,7 @@ const Login= () => {
 
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-      dispatch(setOtpData({ email, otp: genOtp }));
+      dispatch(setOtpData({ email, otp: genOtp,context:'login' }));
       setEmail('')
       navigate("/otpCard")
 
@@ -34,8 +47,8 @@ const Login= () => {
     }
   };
   return (
-    <div className="login-Container logsign">
-      <div><img src="/logSign-logo/signupImg.png" alt="" /></div>
+    <div className="login-Container logsign"ref={loginRef}>
+      <div className='w-[60%] md:w-full'><img src="/logSign-logo/signupImg.png" alt="" /></div>
       <div className="loginCard lscard">
         <div className="loginInput inclass">
           <div className="heading"><h1>Log in continue your learning journey</h1></div>

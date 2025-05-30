@@ -1,4 +1,5 @@
-import React from 'react'
+import { gsap } from 'gsap';
+import { useState,useEffect,useRef} from "react";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { useDispatch, useSelector } from 'react-redux';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
@@ -12,10 +13,20 @@ const Cart = () => {
     return acc + (isNaN(price) ? 0 : price);
   }, 0).toFixed(2);
   
+  const cartRef = useRef(null);
+  useEffect(() => {
+    if (cartRef.current) {
+      gsap.fromTo(
+        cartRef.current,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+      );
+    }
+  }, []);
   
   const len=cartItems.length
   return (
-    <div className='cartcomponent  flex flex-col w-[90%]  max-w-[1260px]'>
+    <div className='cartcomponent  flex flex-col w-[90%]  max-w-[1260px]'ref={cartRef}>
       <header className='mt-5 mb-6 text-5xl font-bold'>Your Cart wallet</header>
       <div className="itemdetails flex flex-col md:grid md:grid-cols-6 md:grid-rows-7 gap-1 mb-5">
         <div className="itemspart  md:col-span-4 md:row-span-7">

@@ -3,7 +3,7 @@ import CourseCard from '../courseCard';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useHorizontalScroll from '../../utils/ScrollingFunction';
-
+import { gsap } from 'gsap';
 
 const CoursesDiv = ({ courseData,activeBranch }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -11,6 +11,7 @@ const CoursesDiv = ({ courseData,activeBranch }) => {
   const [activeCategory,setActiveCategory]=useState('')
   const CourseNavScroll =useRef(null)
   const CourseCardScroll =useRef(null)
+
   const { scroll: scroll1, showLeftBtn: showLeft1, showRightBtn: showRight1 } = useHorizontalScroll(CourseNavScroll);
   const { scroll: scroll2, showLeftBtn: showLeft2, showRightBtn: showRight2 } = useHorizontalScroll(CourseCardScroll);  
 
@@ -24,9 +25,24 @@ const CoursesDiv = ({ courseData,activeBranch }) => {
 
   const handleCategoryClick = (item, index) => {
     setSelectedCourses(item.courses);
-    setActiveIndex(index); // Update active index when a category is clicked
+    setActiveIndex(index);
     setActiveCategory(item.category);
   };
+  useEffect(() => {
+  if (CourseCardScroll.current) {
+    gsap.fromTo(
+      CourseCardScroll.current.querySelectorAll('li'),
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out',
+      }
+    );
+  }
+}, []);
 
   return (
     <div className="coursesDivTemp">

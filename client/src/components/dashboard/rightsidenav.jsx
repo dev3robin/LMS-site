@@ -10,7 +10,7 @@ import styles from "./dashboard.module.css";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/userSlice";
 import { useNavigate } from 'react-router-dom';
-const RightsideNav = ({showNav,setActiveNav}) => {
+const RightsideNav = ({showNav,setActiveNav,rightRef}) => {
   const [isSettings,setIsSettings]=useState(false)
   const navigate=useNavigate();
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const RightsideNav = ({showNav,setActiveNav}) => {
     setIsSettings(false)
   }
   return (
-      <div className={`${styles.rightsidenav} ${showNav ? styles.show : ""}`}>
+      <div ref={rightRef}className={`${styles.rightsidenav} ${showNav ? styles.show : ""}`}>
         <ul className={`${styles.settingsItems} ${isSettings ? styles.active : ""}`}>
           <li onClick={handeleSelect}>profile</li>
           <li onClick={handeleSelect}>Theme</li>

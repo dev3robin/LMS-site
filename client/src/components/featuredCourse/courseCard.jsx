@@ -7,7 +7,6 @@ const CourseCard = ({ course,activeBranch,activeCategory,selectedCourses }) => {
   const handleAdd = () => {
     setIsOpen(true);
   };
-console.log(course);
 
   return (
     <div className='courseCard'>

@@ -26,6 +26,7 @@
   position: absolute;
   width: 300px;
   top: 260px;
+  z-index: 10;
 }
 .dropList li{
   width:100%;

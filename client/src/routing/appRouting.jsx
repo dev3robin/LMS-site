@@ -5,7 +5,7 @@ import Login from "../components/LoSignUp/login";
 import CourseDetails from "../components/courseDetails/courseDetails";
 import Dashboard from "../components/dashboard/dashboard";
 import OtpCard from "../components/LoSignUp/otp";
-import TDashboard from "../components/dashboard/components/teacherDashboard";
+import TDashboard from "../components/dashboard/teacherDashboard";
 import Cart from "../components/cart/cart";
 import Assesment from "../components/assesment/assesment";
 import Notes from "../components/notes/note";

@@ -35,10 +35,10 @@ body {
 
 /* Small Phones */
 @media screen  and (max-width: 480px) {
-
+/* 
   .top-nav{
     background-color: aqua !important;
-  }
+  } */
   .login, .signup, .dashboard,.assesment, .lang, .theme,.notes{
     display: none;
   }
@@ -69,9 +69,9 @@ body {
   }
 }
 @media screen and (min-width: 481px) and (max-width: 576px) {
-  .top-nav{
+  /* .top-nav{
     background-color: red !important;
-  }
+  } */
   .notes,.login, .signup, .dashboard,.assesment, .lang, .theme{
     display: none;
   }
@@ -107,9 +107,9 @@ body {
 
 /* Tablets */
 @media screen and (min-width: 577px) and (max-width: 768px) {
-  .top-nav{
+  /* .top-nav{
     background-color: yellowgreen !important;
-  }
+  } */
   .login, .signup, .dashboard,.assesment,.notes, .lang, .theme{
     display: none;
   }
@@ -141,9 +141,9 @@ body {
 
 /* Laptops */
 @media screen and (min-width: 769px) and (max-width: 992px) {
-  .top-nav{
+  /* .top-nav{
     background-color: olive !important;
-  }
+  } */
   .assesment,.notes, .theme{
     display: none;
   }
@@ -158,9 +158,9 @@ body {
 
 /* Desktops */
 @media screen and (min-width: 993px) {
-  .top-nav{
+  /* .top-nav{
     background-color: green !important;
-  }
+  } */
   .logoDiv{
     width: fit-content;
     min-width: 120px;
