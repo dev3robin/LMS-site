@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import DoneIcon from '@mui/icons-material/Done'
 import CloseIcon from '@mui/icons-material/Close'
-import { saveNote } from '/src/idbHelper.js';
+import { saveToStore } from '/src/idbHelper.js';
 
 
 
@@ -47,7 +47,7 @@ const addNote = async () => {
     File: file,
     Date: Date.now()
   };
-  await saveNote(note);
+  await saveToStore('notes',note);
 };
 
 

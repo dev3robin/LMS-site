@@ -7,7 +7,9 @@ const otpSlice = createSlice({
     userName:'',
     email: '',
     otp: '',
-    context:''
+    context:'',
+    userRole:'',
+    Status:''
   },
   reducers: {
     setOtpData: (state, action) => {
@@ -15,12 +17,16 @@ const otpSlice = createSlice({
       state.email = action.payload.email;
       state.otp = action.payload.otp;
       state.context=action.payload.context
+      state.userRole=action.payload.userRole
+      state.Status=action.payload.Status
     },
     resetOtpData: (state) => {
       state.userName = '';
       state.email = '';
       state.otp = '';
       state.context=''
+      state.userRole=''
+      state.Status=''
     }
   }
 });

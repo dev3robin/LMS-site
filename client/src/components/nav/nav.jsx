@@ -75,6 +75,7 @@ const NavBar = () => {
   const cartItems=useSelector(state=>state.cart.cartItems) 
   const [showDropdown, setShowDropdown] = useState(false);
   const { i18n } = useTranslation();
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -91,7 +92,6 @@ const NavBar = () => {
     i18n.changeLanguage(lng);
     setShowDropdown(false);
   };
-
   return (
       <>
         <nav className='top-nav'>
@@ -120,7 +120,7 @@ const NavBar = () => {
           {isloggedIn && 
             <div className="dashboard relative ">
               <div className="dashboardBtn"><Button onClick={()=> setShowDashType(true)}>Dashboard <span>&#x25BC;</span></Button></div>
-              <div className="dashboardType ">
+              <div className="dashboardType "style={{ backgroundColor: 'var(--dashPopC)'}}>                
                 <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>
                 <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>
               </div>

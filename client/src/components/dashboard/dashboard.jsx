@@ -40,7 +40,6 @@ const Dashboard = () => {
                   <SearchIcon />
                 </button>
             </div>
-
           </div>
           <div className={styles.bodycontent}>
             <p>Hey, UserName</p>

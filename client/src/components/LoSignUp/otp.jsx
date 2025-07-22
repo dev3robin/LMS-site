@@ -5,7 +5,7 @@ import OtpInput from "./otpInput";
 import Countdown from "./timer";
 import { login } from "../../redux/userSlice";
 import { resetOtpData } from "../../redux/otpSlice";
-import { addUser, getAllUsers } from "../../idbHelper";
+import { saveToStore, getAllFromStore } from "../../idbHelper";
 
 function OtpCard() {
   const navigate = useNavigate();
@@ -18,17 +18,22 @@ function OtpCard() {
   const email = useSelector(state => state.otp.email);
   const context = useSelector(state => state.otp.context);
   const name = useSelector(state => state.otp.userName);
+  const role = useSelector(state => state.otp.userRole);
+   const status = useSelector(state => state.otp.Status);
+  
+  const userId=name+storedOtp 
 
-  const userId=name+storedOtp
   const userData={
     userId:userId,
     userName:name,
-    userEmail:email
+    userEmail:email,
+    userRole:role,
+    userStatus:status
   }
 
   useEffect(()=>{
     const fetchUsers= async ()=>{
-      const all=await getAllUsers();
+      const all=await getAllFromStore("users");
       setAllUsers(all)
     }
     fetchUsers()
@@ -39,16 +44,24 @@ function OtpCard() {
     const enteredOtp = otp.join("");
     if (enteredOtp === storedOtp) {
       if(context === "signUp"){
-        addUser(userData)
-        dispatch(resetOtpData());
-        dispatch(login({ email }));
-        alert('Verify success')
-        navigate("/");
+        if(status === "pending")
+          {
+            saveToStore("authrequest",userData)
+            alert("Request successfully submited")
+            navigate("/");
+        }else{
+            delete userData.userStatus
+            saveToStore('users',userData)
+            dispatch(resetOtpData());
+            dispatch(login({ userId: userData.userId }));
+            alert('Verify success')
+            navigate("/");
+        }
       }else{
         const findUser = allUsers.find(user=>user.userEmail === email)
         if(findUser){
           dispatch(resetOtpData());
-          dispatch(login({ email }));
+          dispatch(login({ userId: findUser.userId }));
           navigate("/student-dashboard");
         }else{
           alert("User not Found")

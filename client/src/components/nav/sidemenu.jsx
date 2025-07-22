@@ -117,15 +117,16 @@ const Menu = () => {
               {isloggedIn && 
                 <div className="dashboard1" onClick={toggleSidebar}>
                   <div className="dashboardBtn1"><Button>Dashboard <span>&#x25BC;</span></Button></div>
-                  <div className="dashboardType1">
+                  <div className="dashboardType1"style={{ backgroundColor: 'var(--dashPopC)'}}>
                     <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>
                     <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>
+                    <Link to="/author-dashboard"><DashboardIcon />Author Dashboard</Link>
                   </div>
               </div>}
               <div className="relative lang1">
-               <Button> <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" /></Button>
+               <Button className='flex gap-2'><span>Language</span> <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" /></Button>
                 {showDropdown && (
-                  <div className="absolute z-10 right-0 mt-2 w-40 bg-white text-black rounded-md shadow-lg">
+                  <div className="absolute z-10 right-0 mt-2 w-40 bg-white text-black rounded-md shadow-lg">                    
                     <ul className="p-2">
                       <li onClick={() => changeLanguage('en')} className="p-2 hover:bg-gray-200 cursor-pointer">English</li>
                       <li onClick={() => changeLanguage('fr')} className="p-2 hover:bg-gray-200 cursor-pointer">Français</li>
@@ -138,7 +139,7 @@ const Menu = () => {
                 )}
               </div>
               <div className="theme1">
-               <Button> <MaterialUISwitch
+               <Button className='flex gap-2'><span>Mode</span> <MaterialUISwitch
                   onChange={handleThemeChange}
                   defaultChecked={document.documentElement.getAttribute('data-theme') === 'dark'}
                 /></Button>

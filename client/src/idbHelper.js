@@ -1,7 +1,7 @@
 import { openDB } from 'idb';
 
 const DB_NAME = 'LMS-site';   // one DB for both notes and assessments
-const DB_VERSION =3 ;         // bump version if you already have a DB
+const DB_VERSION =5 ;       
 
 export const initDB = async () => {
   return openDB(DB_NAME, DB_VERSION, {
@@ -21,37 +21,24 @@ export const initDB = async () => {
       if (!db.objectStoreNames.contains('users')) {
         db.createObjectStore('users', { keyPath: "id",autoIncrement:true });
       }
+      if (!db.objectStoreNames.contains('submissions')) {
+        db.createObjectStore('submissions', { keyPath:"SubmissionId" });
+      }
+      if (!db.objectStoreNames.contains('authors')) {
+        db.createObjectStore('authors', { keyPath:"AuthorId" });
+      }
+      if (!db.objectStoreNames.contains('teachers')) {
+        db.createObjectStore('teachers', { keyPath:"TeacherId" });
+      }
+      if (!db.objectStoreNames.contains('authrequest')) {
+        db.createObjectStore('authrequest', { keyPath:"id",autoIncrement:true });
+      }
 
     },
   });
 };
 
-// Notes CarD
-export const saveNote = async (note) => {
-  const db = await initDB();
-  await db.put('notes', note);
-};
 
-export const getAllNotes = async () => {
-  const db = await initDB();
-  return await db.getAll('notes');
-};
-
-export const deleteNote = async (id) => {
-  const db = await initDB();
-  await db.delete('notes', id);
-};
-
-// Assessments Card
-export const addAssessment = async (assessment) => {
-  const db = await initDB();
-  await db.put('assessments', assessment);
-};
-
-export const getAllAssessments = async () => {
-  const db = await initDB();
-  return await db.getAll('assessments');
-};
 export const updateAssessmentStatus = async (id, newStatus) => {
   const db = await initDB();
   const assessment = await db.get('assessments', id);
@@ -62,12 +49,26 @@ export const updateAssessmentStatus = async (id, newStatus) => {
   }
 };
 
-//userData 
-export const addUser= async (user)=>{
-  const db= await initDB();
-  await db.put('users',user)
-}
-export const getAllUsers = async () => {
+// General PUT (add/update) function
+export const saveToStore = async (storeName, data) => {
   const db = await initDB();
-  return await db.getAll('users');
+  await db.put(storeName, data);
+};
+
+// General GET ALL
+export const getAllFromStore = async (storeName) => {
+  const db = await initDB();
+  return await db.getAll(storeName);
+};
+
+// General DELETE
+export const deleteFromStore = async (storeName, key) => {
+  const db = await initDB();
+  await db.delete(storeName, key);
+};
+
+// General GET ONE by key
+export const getOneFromStore = async (storeName, key) => {
+  const db = await initDB();
+  return await db.get(storeName, key);
 };

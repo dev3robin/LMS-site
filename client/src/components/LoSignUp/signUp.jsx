@@ -6,16 +6,28 @@ import { Link, useNavigate } from 'react-router-dom'
 import emailjs from '@emailjs/browser';
 import { setOtpData } from '../../redux/otpSlice';
 import { useDispatch } from 'react-redux';
-import { getAllUsers } from '../../idbHelper';
+import { getAllFromStore } from '../../idbHelper';
 const SignUp = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const signUpRef = useRef(null);
   const [allUsers,setAllUsers]=useState([])
-  const [userData,setUserData]=useState({
-    UserName:"",
-    UserEmail:""
-  })
+  const [role,setRole]=useState("student")
+  const [userData, setUserData] = useState({
+    UserName: "",
+    UserEmail: "",
+    Status: "student",
+    RoleApply:role
+
+  });
+
+  useEffect(() => {
+    setUserData(prev => ({
+      ...prev,
+      RoleApply:role,
+      Status: (role === 'author' || role === 'teacher') ? 'pending' : 'student'
+    }));
+  }, [role]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prev) => ({
@@ -25,7 +37,7 @@ const SignUp = () => {
   };
     useEffect(()=>{
       const fetchUsers= async ()=>{
-        const all=await getAllUsers();
+        const all=await getAllFromStore("users");
         setAllUsers(all)
       }
       fetchUsers()
@@ -56,7 +68,7 @@ const SignUp = () => {
       const findUser = allUsers.find(user=>user.userEmail === userData.UserEmail)
       if(!findUser){
         await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-        dispatch(setOtpData({ email: userData.UserEmail, otp: genOtp,userName:userData.UserName, context:'signUp' }));
+        dispatch(setOtpData({ email: userData.UserEmail, otp: genOtp,userName:userData.UserName, context:'signUp',userRole:userData.RoleApply,Status:userData.Status }));
         navigate("/otpCard") 
       }else{
         alert("This email is already insue")
@@ -78,16 +90,39 @@ const SignUp = () => {
             <input type="checkbox"/>
             <p>
               Send me special offers,personalized recommendation, and learning tips
-            </p></div>
+            </p>
+          </div>
           <div className='name'>
-            <input type="text" name='UserName'value={userData.UserName} onChange={handleInputChange}/>
+            <input 
+              type="text" name='UserName'
+              value={userData.UserName} 
+              onChange={handleInputChange}
+            />
             <label>Full name</label>
           </div>
 
           <div className='email'>
-            <input type="text"name='UserEmail'value={userData.UserEmail}onChange={handleInputChange}/>
+            <input 
+              type="text"name='UserEmail'
+              value={userData.UserEmail}
+              onChange={handleInputChange}
+            />
             <label >Email</label>
           </div>
+          <div className='text-sm' >
+            <span >Select Role :</span>
+            <select name="role" required 
+               className='p-3 outline-0'
+               value={role}
+              onChange={(e) =>
+                setRole(e.target.value )
+              } >
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="author">Author</option>
+            </select>
+          </div>
+
           <div><button onClick={sendOtp}><span><EmailIcon /></span> Continue with email</button></div>
         </div>
         <div className='hr'><hr /><span>Other sign up options</span><hr /></div>

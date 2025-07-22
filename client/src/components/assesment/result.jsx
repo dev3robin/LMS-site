@@ -1,22 +1,10 @@
 import { Dialog } from '@mui/material'
-import { useSelector } from 'react-redux'
 import CloseIcon from '@mui/icons-material/Close'
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-const Resultcard = ({assesment,resultStat,isResult}) => {
-  const {answer}=useSelector((state)=>state.Assesment)
+const Resultcard = ({assesment,resultStat,isResult,percentage,answer}) => {
   const question=assesment.Quizz
-  const courseId=String(assesment.AssesmentId)
-  let count = 0;
-
-  question.forEach((q) => {
-    const userAnswer = answer[courseId]?.[q.questionNo];
-    if (userAnswer && userAnswer === q.answerId) {
-      count++;
-    }
-  });
-  
   return (
     <Dialog open={isResult}>
       <div className="fixed inset-0 bg-black/20" aria-hidden="true" />
@@ -47,18 +35,18 @@ const Resultcard = ({assesment,resultStat,isResult}) => {
               <div className='bg-green-200 p-2 rounded-b-full w-fit'><WorkspacePremiumIcon sx={{fontSize:"80px",color:"green"}} /></div>
               <div><h1>Assessment Complete</h1></div>
 
-              <div>You've scored <span>{count *100/question.length}%</span></div>
+              <div>You've scored {percentage}%</div>
             </div>
             {/* asnwer checking */}
             <div className='flex flex-col gap-4 mt-4'>
-              {question.map((q,index)=>
+              {question.map((q)=>
                 <div key={q.questionNo}className='border-1 border-gray-300 rounded-2xl p-3 '> 
                   <div className='flex justify-between '>
                     <h3>Question {q.questionNo} : {q.questionText}</h3>
                     <div>
                       {/* checking answer is correct */}
-                      {answer[courseId]?.[q.questionNo]
-                        ? (q.answerId === answer[courseId][q.questionNo]
+                      {answer[q.questionNo]
+                        ? (q.answerId === answer [q.questionNo]
                             ? <CheckCircleOutlineIcon sx={{ color: 'green' }} />
                             : <CloseIcon sx={{ color: 'red' }} />)
                         : <HelpOutlineIcon sx={{ color: 'gray' }} />}
@@ -66,10 +54,10 @@ const Resultcard = ({assesment,resultStat,isResult}) => {
                   </div>
                   {/* showing selected ans  */}
                   <div className='text-gray-500 text-sm'>
-                    Your answer : {q.options?.find(opt => opt.id === answer[courseId]?.[q.questionNo])?.text || "Not answered"}
+                    Your answer : {q.options?.find(opt => opt.id === answer?.[q.questionNo])?.text || "Not answered"}
                   </div>
                   {/* showing correct aans only when user ans is wrong */}
-                  {answer[courseId]?.[q.questionNo] && answer[courseId][q.questionNo] !== q.answerId && (
+                  {answer [q.questionNo] && answer [q.questionNo] !== q.answerId && (
                     <div className='text-green-500'>
                       Correct answer: {q.options.find(opt => opt.id === q.answerId)?.text}
                     </div>

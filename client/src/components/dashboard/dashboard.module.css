@@ -623,6 +623,14 @@ svg {
     height: fit-content;
     width: 100%;
   }
+  .leftsidenav{
+    position: absolute;
+    height: 85vh;
+    left: -260px;
+  }
+  .leftsidenav.show{
+    transform: translateX(270px);
+  }
   .rightsidenav{
     position: absolute;
     right: -330px;

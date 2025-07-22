@@ -8,7 +8,7 @@ import NoteCreator from './noteCreator';
 import NoteCard from './noteCrad';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
-import { getAllNotes } from '/src/idbHelper.js';
+import { getAllFromStore } from '/src/idbHelper.js';
 const Notes = () => {
   const courseBranch=["All courses","DataScience","Webdevelopment","Bussiness"]
   const [activeIndex,setActiveIndex]=useState(0)
@@ -22,7 +22,7 @@ const Notes = () => {
 
   useEffect(()=>{
     const fetchNotes=async ()=>{
-      const allNotes=await getAllNotes();
+      const allNotes=await getAllFromStore("notes");
       setNotes(allNotes)
     }
     fetchNotes();

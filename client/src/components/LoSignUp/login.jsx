@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import emailjs from '@emailjs/browser';
 import { setOtpData } from '../../redux/otpSlice';
 import { useDispatch } from 'react-redux';
+import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from './auth';
 const Login= () => {
   const [email, setEmail] = useState("");
   const navigate=useNavigate()
@@ -22,9 +23,6 @@ const Login= () => {
     }
   }, []);
 
-  const SERVICE_ID = 'service_w4tq7db';
-  const TEMPLATE_ID = 'template_toocchm';
-  const PUBLIC_KEY = '-omfr_kN7GSPMGend';
   
   const genOtp = Math.floor(1000 + Math.random() * 9000).toString();
   

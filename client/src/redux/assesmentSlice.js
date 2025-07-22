@@ -1,23 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  answer:{}
+  answer: {}
 };
-const assessmentSlice=createSlice({
-  name:'Assesment',
+
+const assessmentSlice = createSlice({
+  name: 'Assessment',
   initialState,
-  reducers:{
+  reducers: {
     setAnswer: (state, action) => {
-      const { courseId, questionId, optionId } = action.payload;
-      if (!state.answer[courseId]) {
-        state.answer[courseId] = {};
-      }
-      state.answer[courseId][questionId] = optionId;
+      const { questionId, optionId } = action.payload;
+      state.answer[questionId] = optionId;
     }
-    
   }
-})
+});
 
-export const {setAnswer } = assessmentSlice.actions;
-
+export const { setAnswer } = assessmentSlice.actions;
 export default assessmentSlice.reducer;

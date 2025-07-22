@@ -7,6 +7,7 @@
   --secondary: #8e8e8e;
   --border: #e0e0e0;
   --text-orange:#FA4616;
+  --dashPopC:#ecfbff;
 }
 
 [data-theme='dark'] {
@@ -16,4 +17,5 @@
   --primary: #8a4dff;
   --secondary: #bbbbbb;
   --border: #333333;
+  --dashPopC:white;
 }

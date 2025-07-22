@@ -5,14 +5,34 @@ import CloseIcon from '@mui/icons-material/Close'
 import TimerIcon from '@mui/icons-material/Timer';
 import Countdown from '../LoSignUp/timer';
 import { setAnswer} from '../../redux/assesmentSlice';
-import { updateAssessmentStatus } from '../../idbHelper';
+import { saveToStore, updateAssessmentStatus } from '../../idbHelper';
 const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen,handleStatus}) => {
   const dispatch=useDispatch()
   const {answer} =useSelector((state)=>state.Assesment)
+  const loggedUser=useSelector((state)=>state.user.userId)
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const questions = assesment.Quizz;
   const currentQuestion = questions[currentIndex];
+
+  const subId=loggedUser+assesment.AssesmentId
+
+  const currentDate = new Date();
+
+  const formattedDate = currentDate.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+
+
+  const submissionData={
+    SubmissionId:subId,
+    UserId:loggedUser,
+    AssesmentId:assesment.AssesmentId,
+    SubmitDate: formattedDate,
+    Answers:answer,
+  }
 
   const handleNext = () => {
     if (currentIndex < questions.length - 1) {
@@ -27,8 +47,10 @@ const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen,handleStatus}) => {
   };
 
   const handleSub = async () => {
+    saveToStore("submissions",submissionData)
     updateAssessmentStatus(assesment.AssesmentId,'completed')
     handleQuizzboxOpen()
+
 
   };
 
@@ -80,12 +102,11 @@ const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen,handleStatus}) => {
                       <input
                         type="radio"
                         checked={
-                          answer?.[assesment.AssesmentId]?.[currentQuestion.questionNo] === q.id
+                          answer?.[currentQuestion.questionNo] === q.id
                         }
                         onChange={() =>
                           dispatch(
                             setAnswer({
-                              courseId: assesment.AssesmentId,
                               questionId: currentQuestion.questionNo,
                               optionId: q.id,
                             })
@@ -103,13 +124,13 @@ const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen,handleStatus}) => {
                     className="w-full p-3 border border-gray-300 rounded-2xl"
                     placeholder="Write your answer here..."
                     rows={2}
+
                     value={
-                      answer?.[assesment.AssesmentId]?.[currentQuestion.questionNo] || ''
+                      answer?.[currentQuestion.questionNo] || ''
                     }
                     onChange={(e) =>
                       dispatch(
                         setAnswer({
-                          courseId: assesment.AssesmentId,
                           questionId: currentQuestion.questionNo,
                           optionId: e.target.value,
                         })
@@ -125,12 +146,11 @@ const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen,handleStatus}) => {
                     placeholder="Write your answer here..."
                     rows={4}
                     value={
-                      answer?.[assesment.AssesmentId]?.[currentQuestion.questionNo] || ''
+                      answer?.[currentQuestion.questionNo] || ''
                     }
                     onChange={(e) =>
                       dispatch(
                         setAnswer({
-                          courseId: assesment.AssesmentId,
                           questionId: currentQuestion.questionNo,
                           optionId: e.target.value,
                         })

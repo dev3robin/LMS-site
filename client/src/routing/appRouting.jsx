@@ -9,6 +9,7 @@ import TDashboard from "../components/dashboard/teacherDashboard";
 import Cart from "../components/cart/cart";
 import Assesment from "../components/assesment/assesment";
 import Notes from "../components/notes/note";
+import AuthorDashboard from "../components/dashboard/autthorDash";
 const AppRoutes = () => {
   return (
         <Routes>
@@ -22,6 +23,8 @@ const AppRoutes = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/assesment" element={<Assesment />} />
           <Route path="/notes" element={<Notes />} />
+          <Route path="/author-dashboard" element={<AuthorDashboard />} />
+          
         </Routes>
   );
 };

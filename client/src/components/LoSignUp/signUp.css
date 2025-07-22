@@ -67,9 +67,9 @@
 }
 .checkP{
   display: flex;
-  gap: 5px;
+  gap: 10px;
   font-size: .8rem;
-  align-items: start;
+  align-items: center;
 }
 .hr {
   display: flex;
@@ -169,12 +169,6 @@ h1{
   font-size: 24px;
   font-weight: 500;
 }
-
-
-
-
-
-
 
 .otpInput{
   height: 40px;

@@ -4,7 +4,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 import { QCardMcq, QCardShortQ, QCardLongQ } from './QuestionsCard';
-import { addAssessment } from '../../idbHelper';
+import { saveToStore } from '../../idbHelper';
 
 const AsseCreator = ({ assCreate, setAssCreate }) => {
   const courseBranch = ["DataScience", "Webdevelopment", "Bussiness"];
@@ -40,6 +40,7 @@ const AsseCreator = ({ assCreate, setAssCreate }) => {
   };
 const [questions, setQuestions] = useState(
   {
+    CreatorId:"",
     AssesmentId: "",
     QType: asseType,
     CourseTitle: "",
@@ -59,8 +60,6 @@ useEffect(() => {
     Quizz: [getDefaultQuestion(asseType)],
   }));
 }, [asseType]);
-
-
 const handleInputChange = (e) => {
   const { name, value } = e.target;
   setQuestions((prev) => ({
@@ -76,12 +75,9 @@ const handleIndex = (index) => {
     RelatedCourse: courseBranch[index],
   }));
 };
-
-
   const handleChange = (event) => {
     setAsseType(event.target.value);
   };
-
   const handleClose = () => {
     setAssCreate(false);
   };
@@ -94,9 +90,9 @@ const handleIndex = (index) => {
 
 const handleAssesmentSubmit = () => {
   if (questions.Quizz.length === 1) return;
-
-  addAssessment(questions); // Assuming `addAssessment` expects an array
+  saveToStore('assessments', questions);
   setQuestions({
+    CreatorId:"",
     AssesmentId: "",
     QType: asseType,
     CourseTitle: "",
@@ -183,6 +179,18 @@ const updateQuestionText = (quizIndex, value) => {
           </div>
 
           <div className='qtype'>
+            <h2>Creator Id</h2>
+            <div className="p-[2px] rounded-2xl border-2 border-transparent focus-within:border-gray-300">
+              <input
+                name="CreatorId"
+                value={questions.CreatorId}
+                onChange={handleInputChange}
+                className='w-full outline-0 border-1 border-gray-300 p-2 rounded-xl'
+                type="text"
+                placeholder='Creator ID'
+              />
+            </div>
+
             <h2>Assessment Id</h2>
             <div className="p-[2px] rounded-2xl border-2 border-transparent focus-within:border-gray-300">
               <input
