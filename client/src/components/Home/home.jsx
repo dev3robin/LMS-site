@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { useSelector } from 'react-redux';
 const Home = () => {
   const homeRef = useRef(null);
-  const isloggedIn=useSelector((state)=>state.user.isLoggedIn) 
   useEffect(() => {
     if (homeRef.current) {
       gsap.fromTo(
@@ -18,9 +17,8 @@ const Home = () => {
   return (
     <div className='mainContent'ref={homeRef}>
       <HeroSection />
-      {isloggedIn &&
-        <FeaturedCourses 
-      />}
+      
+      <FeaturedCourses />
     </div>
   )
 }
