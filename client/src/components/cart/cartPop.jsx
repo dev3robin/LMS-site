@@ -10,6 +10,7 @@ import { addToCart } from '../../redux/cartSlice';
 const AddedToCartDialog = ({ isOpen, setIsOpen,course,selectedCourses }) => {
   const dispatch=useDispatch()
   const Addtocart=(course)=>{
+    alert("Item added to cart")
     dispatch(addToCart(course))
     setIsOpen(false)
   }
