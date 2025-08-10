@@ -104,14 +104,26 @@ const CourseCard = ({ course, activeBranch, activeCategory, selectedCourses }) =
             </li>
           </ul>
         </div>
-        <div className="btnDiv mt-4">
+       <div className='flex  w-full gap-2'>
+         <div className="w-[70%] mt-4">
           <button
             onClick={handleAdd}
-            className="w-full bg-purple-600 text-white rounded py-2.5 hover:bg-purple-500 active:bg-purple-800"
+            className=" w-full bg-purple-600 text-white rounded py-2.5 hover:bg-purple-500 active:bg-purple-800"
           >
             Add to cart
           </button>
         </div>
+        <div className="w-[30%] mt-4">
+          <Link to="/courseDetails" state={{ course, activeBranch, activeCategory }}>
+              <button
+                className="w-full bg-purple-600 text-white rounded py-2.5 hover:bg-purple-500 active:bg-purple-800"
+              >
+                For more
+              </button>
+          </Link>
+        </div>
+       </div>
+
       </div>
 
       <AddedToCartDialog

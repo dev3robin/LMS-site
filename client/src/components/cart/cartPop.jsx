@@ -69,8 +69,8 @@ const AddedToCartDialog = ({ isOpen, setIsOpen,course,selectedCourses }) => {
                     <p className="text-sm">Rating: ⭐ {item.rating}</p>
                   </div>
                   <div class="row-span-3 col-start-8 flex justify-center font-bold">{item.price}</div>
-                  <div class="row-span-3 col-start-9 flex items-start justify-center">
-                    <button className='border-1 active:bg-emerald-400 hover:bg-purple-300 border-purple-900 rounded-4xl'
+                  <div class="row-span-3 col-start-9 ml-2 flex items-start justify-center">
+                    <button className='border-1 w-4 h-4 sm:w-auto sm:h-auto active:bg-emerald-400 hover:bg-purple-300 border-purple-900 rounded-4xl flex items-center justify-center'
                     onClick={()=>Addtocart(item)}
                     ><AddIcon  sx={{color:"purple"}}/></button></div>
                 </div>

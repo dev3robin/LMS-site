@@ -16,7 +16,7 @@ const CourseDetails = () => {
   return (
     <div className='CDetailsDiv'>
         <div className="CDetailsPro">
-          <div className="cdproPrev">
+          <div className="relative flex flex-col w-[98%] max-w-[1260px] p-2">
             <div className="cdFilePro">
               <div className="filepath">
                 {activeBranch} &gt; {activeCategory} &gt; {course.title}
@@ -41,13 +41,13 @@ const CourseDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="previewDiv">
+            <div className="relative sm:absolute sm:right-[2%] sm:top-[12%]">
               <PreviewCard course={course}/>
             </div>
           </div>
         </div>
-        <div className="CDetailsContent">
-          <div className={`whatUWL ${isExpanded ? "expanded" : ""}`} id="contentBox">
+        <div className="w-[100%] max-w-[1260px]">
+          <div className={`whatUWL w-[96%] m-2 sm:w-[60%] h-[50vh] overflow-hidden mb-2 text-[.9rem] flex flex-col border-1 border-gray-300 p-8  ${isExpanded ? "expanded" : ""}`} id="contentBox">
               <h1>What you'll learn</h1>
               <div className="contentP">
                 <p><span><CheckIcon /></span>Generative AI: Create content, synthesize information, and learn faster than ever with effective prompt engineering!</p>

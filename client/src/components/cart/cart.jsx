@@ -70,8 +70,8 @@ const Cart = () => {
           </div>}
       </div>
       {cartItems.length == 0 &&
-        <div className="border-1 border-gray-200 w-full mb-10 flex flex-col gap-3 items-center justify-center">
-          <div><img src="./public/continue.PNG" alt="" /></div>
+        <div className="border-1 p-2 border-gray-200 w-full mb-10 flex flex-col gap-3 items-center justify-center">
+          <div><img src="./public/continue.png" alt="" /></div>
           <p>Your cart is empty. Keep shopping to find a course!</p>
           <Link to='/'>
             <button  className='bg-purple-700 text-white px-3 py-3 font-bold rounded mb-10

@@ -118,8 +118,7 @@ const Footer = () => {
               SelfLearning
             </div>
           </div>
-          <div>Cookie settings</div>
-          <div className="lan">
+          <div className="flex gap-1">
             <LanguageIcon />
             English
           </div>
