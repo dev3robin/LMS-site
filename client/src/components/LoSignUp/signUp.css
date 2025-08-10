@@ -153,6 +153,7 @@ label {
   transition: all 0.3s ease;
   pointer-events: none;
   padding: 5px;
+  transition: opacity 300;
 
 }
 

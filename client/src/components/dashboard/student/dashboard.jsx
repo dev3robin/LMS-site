@@ -1,6 +1,6 @@
 import React, { useState,useRef,useEffect } from 'react'
 import { gsap } from 'gsap';
-import '../dashboard/calender.css'
+import './calender.css'
 import styles from "./dashboard.module.css";
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import HistogramChart from './chart';

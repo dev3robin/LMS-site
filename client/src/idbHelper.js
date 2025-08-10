@@ -1,7 +1,7 @@
 import { openDB } from 'idb';
 
 const DB_NAME = 'LMS-site';   // one DB for both notes and assessments
-const DB_VERSION =5 ;       
+const DB_VERSION =7 ;       
 
 export const initDB = async () => {
   return openDB(DB_NAME, DB_VERSION, {
@@ -25,7 +25,7 @@ export const initDB = async () => {
         db.createObjectStore('submissions', { keyPath:"SubmissionId" });
       }
       if (!db.objectStoreNames.contains('authors')) {
-        db.createObjectStore('authors', { keyPath:"AuthorId" });
+        db.createObjectStore('authors', { keyPath:"authorId" });
       }
       if (!db.objectStoreNames.contains('teachers')) {
         db.createObjectStore('teachers', { keyPath:"TeacherId" });

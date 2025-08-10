@@ -5,12 +5,13 @@ import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 import { QCardMcq, QCardShortQ, QCardLongQ } from './QuestionsCard';
 import { saveToStore } from '../../idbHelper';
+import { useSelector } from 'react-redux';
 
 const AsseCreator = ({ assCreate, setAssCreate }) => {
   const courseBranch = ["DataScience", "Webdevelopment", "Bussiness"];
   const [activeIndex, setActiveIndex] = useState(0);
   const [showDropdown, setShowDropdown] = useState(false);
-
+  const loggedUD=useSelector((state)=>state.user.loggedUD) 
   const [asseType, setAsseType] = useState('MCQ');
 
   const [mcqDialog, setMcqDialog] = useState(false);
@@ -40,7 +41,7 @@ const AsseCreator = ({ assCreate, setAssCreate }) => {
   };
 const [questions, setQuestions] = useState(
   {
-    CreatorId:"",
+    CreatorId:loggedUD.TeacherId,
     AssesmentId: "",
     QType: asseType,
     CourseTitle: "",
@@ -92,7 +93,7 @@ const handleAssesmentSubmit = () => {
   if (questions.Quizz.length === 1) return;
   saveToStore('assessments', questions);
   setQuestions({
-    CreatorId:"",
+    CreatorId:loggedUD.TeacherId,
     AssesmentId: "",
     QType: asseType,
     CourseTitle: "",
@@ -104,6 +105,7 @@ const handleAssesmentSubmit = () => {
     Status: "not-started",
     Quizz: [getDefaultQuestion(asseType)],
   });
+  setAssCreate(false);
 };
 
 const handleAddNextQuestion = () => {

@@ -22,7 +22,7 @@ const AddedToCartDialog = ({ isOpen, setIsOpen,course,selectedCourses }) => {
       {/* Dialog box */}
       <div className="fixed inset-0 flex items-center justify-center px-4">
         <div
-          className=" w-[60%] bg-[#F6F7F9] rounded-lg p-6"
+          className=" w-[100%] md:w-[60%] bg-[#F6F7F9] rounded-lg p-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby="added-to-cart-title"
@@ -75,7 +75,6 @@ const AddedToCartDialog = ({ isOpen, setIsOpen,course,selectedCourses }) => {
                 </div>
 
             ))}
-
 
           </div>
         </div>

@@ -4,6 +4,10 @@ import ShareIcon from '@mui/icons-material/Share';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import DownloadIcon from '@mui/icons-material/Download';
 const NoteCard = ({note}) => {
+  let fileURL;
+  if (note.File instanceof Blob) {
+    fileURL = URL.createObjectURL(note.File);
+  }
   const readableDate = new Date(note.Date).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
@@ -23,13 +27,20 @@ const NoteCard = ({note}) => {
       </div>
       <div className='mb-3'>{note.Branch}</div>
       <div className='mb-2'>{note.Describtion}</div>
+
+      
       <div className='text-gray-200'><hr /></div>
+      <div>
+        <span className='font-semibold'>Media with this note</span>
+        <p className='border-1 p-1 w-fit mt-2 rounded border-gray-200'>{note.File.name} </p>
+      </div>
+
       <section className='flex gap-2 p-4 items-center justify-between '>
         <div className='text-[.7rem] flex gap-1'><span><CalendarMonthIcon sx={{fontSize:".8rem"}} /></span>{readableDate}</div>
         <div className='flex gap-5'>
           <div><BookmarkBorderIcon sx={{fontSize:".8rem"}}/></div>
           <div><ShareIcon sx={{fontSize:".8rem"}}/></div>
-          <div><a href={note.File} download target="_blank" rel="noopener noreferrer">
+          <div><a href={fileURL} download target="_blank" rel="noopener noreferrer">
             <DownloadIcon sx={{ fontSize: ".9rem", cursor: "pointer" }} />
           </a></div>
         </div>

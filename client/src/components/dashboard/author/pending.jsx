@@ -1,22 +1,35 @@
 import { Dialog } from '@mui/material'
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Close'
-import { deleteFromStore, saveToStore } from '../../idbHelper'
+import { deleteFromStore, saveToStore } from '../../../idbHelper'
 
 const PendingReq = ({openReq,setOpenReq,allReq}) => {
 
-  const AcceptClick=(data)=>{
-    const userid=data.id
-    delete data.userStatus
-    delete data.id
-    saveToStore('users',data)
-    deleteFromStore('authrequest',userid)
-    setOpenReq(false)
+const AcceptClick = (data) => {
+  const reqId = data.id;
+  delete data.userStatus;
+  delete data.id;
+  delete data.userId;
+  const baseName = data.userName?.replace(/\s+/g, "_") || "user";
+  const uniqueId = baseName + reqId;
+  if (data.userRole === "teacher") {
+    data.TeacherId = uniqueId;
+    saveToStore('teachers', data);
 
+  } else if (data.userRole === "author") {
+    data.authorId = uniqueId;
+    saveToStore('authors', data);
   }
+  //send user a acception mail
+
+  deleteFromStore('authrequest', reqId);
+  setOpenReq(false);
+};
+
   const RejectClick=(data)=>{
-    const userid=data.id
-    deleteFromStore('authrequest',userid)
+    const reqId=data.id
+      //send user a rejection mail
+    deleteFromStore('authrequest',reqId)
     setOpenReq(false)
   }
   return (
@@ -50,7 +63,7 @@ const PendingReq = ({openReq,setOpenReq,allReq}) => {
                       <div key={index} className='max-w-[250px] border-1 p-2 rounded-2xl border-gray-300'>
                         <section>
                           <p><span className='text-sm font-bold'>UserName :</span> {item.userName}</p>
-                          <p><span className='text-sm font-bold'>UserId :</span> {item.userId}</p>
+                          <p><span className='text-sm font-bold'>reqId :</span> {item.id}</p>
                           <p><span className='text-sm font-bold'>UserEmail :</span> {item.userEmail}</p>
                           <p><span className='text-sm font-bold'>Role Apply for :</span> {item.userRole}</p>
                         </section>

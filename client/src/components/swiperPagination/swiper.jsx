@@ -4,7 +4,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const Swiper = ({slides,moveToSlide,currentIndex}) => {
   const swiperRef=useRef(null)
   const [slideWidth,setSlideWidth]=useState(null)
-  // fro DOM to be load and then adding offset tp slideWidth
   useEffect(() => {
     if (swiperRef.current) {
       setSlideWidth(swiperRef.current.offsetWidth);

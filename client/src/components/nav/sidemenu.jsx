@@ -4,12 +4,11 @@ import LanguageIcon from '@mui/icons-material/Language';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import "../nav/sidemenu.css"
 import { useSelector } from 'react-redux';
 
@@ -74,6 +73,9 @@ const Menu = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { i18n } = useTranslation();
   const isloggedIn=useSelector((state)=>state.user.isLoggedIn)
+  const loggedUser=useSelector((state)=>state.user.loggedUD)
+  const navigate = useNavigate();
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -94,6 +96,25 @@ const Menu = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const handleDashboardClick = () => {
+    if (!loggedUser || !loggedUser.userRole) return;
+
+    switch (loggedUser.userRole) {
+      case 'student':
+        navigate('/student-dashboard');
+        break;
+      case 'teacher':
+        navigate('/teacher-dashboard');
+        break;
+      case 'author':
+        navigate('/author-dashboard');
+        break;
+      default:
+        alert('Unknown role');
+    };
+    toggleSidebar()
+  };
   return (
           <div className="menudiv">
             <div className="menuicon" onClick={toggleSidebar}>
@@ -103,7 +124,17 @@ const Menu = () => {
               <div className="closeicon" onClick={toggleSidebar}>
                 <CloseIcon />
               </div>
-              <div className="cart1"  onClick={toggleSidebar}><Button ><ShoppingCartIcon /></Button></div>
+              <div className="cart1"onClick={toggleSidebar}>
+                <Link to="/cart">
+                  <Button className='flex gap-3' >
+                    <span>Cart</span>
+                    <ShoppingCartIcon />
+                  </Button>
+                </Link>
+              </div>
+              
+              <div><Link to='/courses'><Button>Courses</Button></Link></div>
+            
               <div className="login1"  onClick={toggleSidebar}><Link to="/login"><Button>login</Button></Link></div>
               <div className="signup1" onClick={toggleSidebar}><Link to="/signUp"><Button>signup</Button></Link></div>
               {isloggedIn && 
@@ -115,14 +146,8 @@ const Menu = () => {
                   <Link to="/assesment"><Button>Assesment</Button></Link>
                 </div>}
               {isloggedIn && 
-                <div className="dashboard1" onClick={toggleSidebar}>
-                  <div className="dashboardBtn1"><Button>Dashboard <span>&#x25BC;</span></Button></div>
-                  <div className="dashboardType1"style={{ backgroundColor: 'var(--dashPopC)'}}>
-                    <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>
-                    <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>
-                    <Link to="/author-dashboard"><DashboardIcon />Author Dashboard</Link>
-                  </div>
-              </div>}
+                <div><Button onClick={handleDashboardClick}>Dashboard <span>&#x25BC;</span></Button></div>
+              }
               <div className="relative lang1">
                <Button className='flex gap-2'><span>Language</span> <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" /></Button>
                 {showDropdown && (

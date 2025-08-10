@@ -6,13 +6,22 @@ import { Link, useNavigate } from 'react-router-dom'
 import emailjs from '@emailjs/browser';
 import { setOtpData } from '../../redux/otpSlice';
 import { useDispatch } from 'react-redux';
-import { getAllFromStore } from '../../idbHelper';
+import { getAllFromStore, saveToStore } from '../../idbHelper';
+import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from './auth';
 const SignUp = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const signUpRef = useRef(null);
+
+  const nameInputRef = useRef(null);
+  const [nameLabelVisible, setNameLabelVisible] = useState(true);
+  const emailInputRef = useRef(null);
+  const [emailLabelVisible, setEmailLabelVisible] = useState(true);
+
+
   const [allUsers,setAllUsers]=useState([])
   const [role,setRole]=useState("student")
+
   const [userData, setUserData] = useState({
     UserName: "",
     UserEmail: "",
@@ -37,7 +46,10 @@ const SignUp = () => {
   };
     useEffect(()=>{
       const fetchUsers= async ()=>{
-        const all=await getAllFromStore("users");
+        const allstudents=await getAllFromStore("users");
+        const allauthors=await getAllFromStore("authors");
+        const allteachers=await getAllFromStore("teachers");
+        const all=[...allstudents, ...allauthors, ...allteachers]
         setAllUsers(all)
       }
       fetchUsers()
@@ -51,12 +63,8 @@ const SignUp = () => {
       );
     }
   }, []);
-  const SERVICE_ID = 'service_w4tq7db';
-  const TEMPLATE_ID = 'template_toocchm';
-  const PUBLIC_KEY = '-omfr_kN7GSPMGend';
-  
+
   const genOtp = Math.floor(1000 + Math.random() * 9000).toString();
-  
   const sendOtp = async (e) => {
     e.preventDefault();
     const templateParams = {
@@ -69,9 +77,10 @@ const SignUp = () => {
       if(!findUser){
         await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
         dispatch(setOtpData({ email: userData.UserEmail, otp: genOtp,userName:userData.UserName, context:'signUp',userRole:userData.RoleApply,Status:userData.Status }));
+        alert("otp send successffully")
         navigate("/otpCard") 
       }else{
-        alert("This email is already insue")
+        alert("This email is already inuse")
       }
 
     } catch (error) {
@@ -94,20 +103,42 @@ const SignUp = () => {
           </div>
           <div className='name'>
             <input 
+              ref={nameInputRef}
               type="text" name='UserName'
               value={userData.UserName} 
               onChange={handleInputChange}
+              onFocus={() => setNameLabelVisible(true)}
+              onBlur={() => {
+                if (nameInputRef.current.value.trim() !== "") {
+                  setNameLabelVisible(false);
+                }
+              }}
             />
-            <label>Full name</label>
+             <label
+                className={`transition-opacity duration-300 ${nameLabelVisible ? 'opacity-100' : 'opacity-0'}`}
+              >
+                Full name
+              </label>
           </div>
 
           <div className='email'>
             <input 
+              ref={emailInputRef}
               type="text"name='UserEmail'
-              value={userData.UserEmail}
+              value={userData.UserEmail} 
               onChange={handleInputChange}
+              onFocus={() => setEmailLabelVisible(true)}
+              onBlur={() => {
+                if (emailInputRef.current.value.trim() !== "") {
+                  setEmailLabelVisible(false);
+                }
+              }}
             />
-            <label >Email</label>
+            <label
+                className={`transition-opacity duration-300 ${emailLabelVisible ? 'opacity-100' : 'opacity-0'}`}
+              >
+                Email
+              </label>
           </div>
           <div className='text-sm' >
             <span >Select Role :</span>

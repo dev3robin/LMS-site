@@ -11,6 +11,7 @@ function OtpCard() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [allUsers,setAllUsers]=useState([])
+
   const length=4;
   const [otp, setOtp] = useState(new Array(length).fill(""));
 
@@ -19,22 +20,26 @@ function OtpCard() {
   const context = useSelector(state => state.otp.context);
   const name = useSelector(state => state.otp.userName);
   const role = useSelector(state => state.otp.userRole);
-   const status = useSelector(state => state.otp.Status);
+  const status = useSelector(state => state.otp.Status);
   
-  const userId=name+storedOtp 
+  const userId= name?.replace(/\s+/g, "_") + storedOtp 
 
-  const userData={
+  const userData={ 
     userId:userId,
     userName:name,
     userEmail:email,
     userRole:role,
     userStatus:status
   }
-
   useEffect(()=>{
     const fetchUsers= async ()=>{
-      const all=await getAllFromStore("users");
-      setAllUsers(all)
+      const allStudents=await getAllFromStore("users");
+      const allAuthors=await getAllFromStore("authors");
+      const allTeachers=await getAllFromStore("teachers");
+
+      const allUsers=[...allAuthors, ...allTeachers, ...allStudents]
+
+      setAllUsers(allUsers)
     }
     fetchUsers()
   },[])
@@ -44,25 +49,36 @@ function OtpCard() {
     const enteredOtp = otp.join("");
     if (enteredOtp === storedOtp) {
       if(context === "signUp"){
-        if(status === "pending")
-          {
-            saveToStore("authrequest",userData)
-            alert("Request successfully submited")
-            navigate("/");
+        if(status === "pending"){
+          saveToStore("authrequest",userData)
+          alert("Request successfully submited")
+          navigate("/");
         }else{
             delete userData.userStatus
             saveToStore('users',userData)
             dispatch(resetOtpData());
-            dispatch(login({ userId: userData.userId }));
             alert('Verify success')
-            navigate("/");
+            navigate("/login");
         }
       }else{
         const findUser = allUsers.find(user=>user.userEmail === email)
         if(findUser){
           dispatch(resetOtpData());
-          dispatch(login({ userId: findUser.userId }));
-          navigate("/student-dashboard");
+          dispatch(login({ loggedUD: findUser}));
+          alert("login successfully")
+            switch (findUser.userRole) {
+              case 'author':
+                navigate('/author-dashboard');
+                break;
+              case 'teacher':
+                navigate('/teacher-dashboard');
+                break;
+              case 'student':
+                navigate('/student-dashboard');
+                break;
+              default:
+                alert('Unknown role');
+            }
         }else{
           alert("User not Found")
         }

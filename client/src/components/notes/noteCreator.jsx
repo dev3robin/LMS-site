@@ -34,9 +34,13 @@ const NoteCreator = ({noteCreator,handleClose}) => {
     const handleDescribtion=(e)=>{
       setDescribtion(e.target.value)
     }
-    const handleFile=(e)=>{
-      setFile(e.target.files[0])
-    }
+const handleFile = (e) => {
+  const uploadedFile = e.target.files[0];
+  if (uploadedFile) {
+    setFile(uploadedFile); // store the actual file
+  }
+};
+
 const addNote = async () => {
   const note = {
     id: title+Date.now(),

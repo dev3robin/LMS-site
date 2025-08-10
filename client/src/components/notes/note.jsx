@@ -9,6 +9,7 @@ import NoteCard from './noteCrad';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import { getAllFromStore } from '/src/idbHelper.js';
+import { useSelector } from 'react-redux';
 const Notes = () => {
   const courseBranch=["All courses","DataScience","Webdevelopment","Bussiness"]
   const [activeIndex,setActiveIndex]=useState(0)
@@ -19,6 +20,8 @@ const Notes = () => {
   const [searchQuery,setSearchQuery]=useState('')
   const [showSuggestions,setShowSuggestions]=useState(false)
   const [previewQuery, setPreviewQuery] = useState('');
+
+    const loggedUser=useSelector((state)=>state.user.loggedUD) 
 
   useEffect(()=>{
     const fetchNotes=async ()=>{
@@ -66,12 +69,20 @@ const Notes = () => {
     setShowSuggestions(false)
     setPreviewQuery(''); 
   }
+
+  const handleNoteCreate=()=>{
+    if(loggedUser.userRole === 'teacher'){
+      setNoteCreator(true)
+    } else{
+      alert("Only teacher can create note.")
+    }
+  }
   return (
     <div className='w-[95%] max-w-[1260px] flex flex-col mb-10 bg-gray-50'>
       <div className="flex items-center justify-between">
         <div><h1>Notes</h1>
         <h2>Create, organize, and share your study notes</h2></div>
-        <div><Button onClick={()=>{setNoteCreator(true)}}>Create Note</Button></div>
+        <div><Button onClick={handleNoteCreate}>Create Note</Button></div>
       </div>
       <nav className='flex-col md:flex-row bg-white p-2 my-8 flex gap-10 justify-between rounded-xl'>
         <div className='w-full'> 

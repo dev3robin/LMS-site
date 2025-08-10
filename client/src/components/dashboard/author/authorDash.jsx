@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllFromStore } from '../../idbHelper';
+import { getAllFromStore } from '../../../idbHelper';
 import PendingReq from './pending';
 
 const AuthorDashboard = () => {
@@ -9,7 +9,11 @@ const AuthorDashboard = () => {
 
   useEffect(()=>{
     const fetchUsers= async ()=>{
-      const users= await getAllFromStore('users')
+      const students= await getAllFromStore('users')
+      const teachers= await getAllFromStore('teachers')
+      const authors= await getAllFromStore('authors')
+
+      const users=[...students, ...teachers, ...authors]
       setAllUsers(users)
     }
     fetchUsers()
@@ -63,7 +67,7 @@ const AuthorDashboard = () => {
           <div className="text-gray-600">Total Techers</div>
         </div>
         <div className="bg-white p-4 rounded-xl shadow text-center">
-          <div className="text-2xl font-bold text-yellow-500">{numOfteachers}</div>
+          <div className="text-2xl font-bold text-yellow-500">0</div>
           <div className="text-gray-600">Total Courses</div>
         </div>
         <div className="bg-white p-4 rounded-xl 

@@ -9,10 +9,9 @@ import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Menu from './sidemenu';
 import SearchIcon from '@mui/icons-material/Search';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import { useSelector } from 'react-redux';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -72,9 +71,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 const NavBar = () => {
   const isloggedIn=useSelector((state)=>state.user.isLoggedIn) 
+  const loggedUser=useSelector((state)=>state.user.loggedUD) 
+
   const cartItems=useSelector(state=>state.cart.cartItems) 
   const [showDropdown, setShowDropdown] = useState(false);
   const { i18n } = useTranslation();
+  
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -91,6 +95,24 @@ const NavBar = () => {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setShowDropdown(false);
+  };
+
+  const handleDashboardClick = () => {
+    if (!loggedUser || !loggedUser.userRole) return;
+
+    switch (loggedUser.userRole) {
+      case 'student':
+        navigate('/student-dashboard');
+        break;
+      case 'teacher':
+        navigate('/teacher-dashboard');
+        break;
+      case 'author':
+        navigate('/author-dashboard');
+        break;
+      default:
+        alert('Unknown role');
+    }
   };
   return (
       <>
@@ -111,19 +133,12 @@ const NavBar = () => {
                 <SearchIcon />
               </button>
           </div>
-          <div className='cart'>
-            <Link to='/cart'><ShoppingCartIcon /></Link>
-            <span>{cartItems.length}</span>
-          </div>
+          <div className='hidden md:block'><Link to='/courses'><Button>Courses</Button></Link></div>
           <div className="login"><Link to="/login"><Button>login</Button></Link></div>
           <div className="signup"><Link to="/signUp"><Button>signup</Button></Link></div>
           {isloggedIn && 
             <div className="dashboard relative ">
-              <div className="dashboardBtn"><Button onClick={()=> setShowDashType(true)}>Dashboard <span>&#x25BC;</span></Button></div>
-              <div className="dashboardType "style={{ backgroundColor: 'var(--dashPopC)'}}>                
-                <Link to="/student-dashboard"><DashboardIcon />Student Dashboard</Link>
-                <Link to="/teacher-dashboard"><DashboardIcon />Teacher Dashboard</Link>
-              </div>
+              <div className="dashboardBtn"><Button onClick={handleDashboardClick}>Dashboard <span>&#x25BC;</span></Button></div>
             </div>
           }
           {isloggedIn && 
@@ -134,6 +149,10 @@ const NavBar = () => {
             <div className="notes"><Link to='/notes'><Button>Notes</Button></Link>
           </div>
           }
+          <div className='cart'>
+            <Link to='/cart'><ShoppingCartIcon /></Link>
+            <span>{cartItems.length}</span>
+          </div>
           <div className="lang relative">
             <LanguageIcon onClick={() => setShowDropdown(!showDropdown)} className="cursor-pointer" />
               {showDropdown && (

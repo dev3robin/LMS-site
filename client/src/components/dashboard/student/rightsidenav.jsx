@@ -5,10 +5,10 @@ import { faker } from '@faker-js/faker';
 import CalendarComponent from './calender';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
-import '../dashboard/calender.css'
+import './calender.css'
 import styles from "./dashboard.module.css";
 import { useDispatch } from "react-redux";
-import { logout } from "../../redux/userSlice";
+import { logout } from "../../../redux/userSlice";
 import { useNavigate } from 'react-router-dom';
 const RightsideNav = ({showNav,setActiveNav,rightRef}) => {
   const [isSettings,setIsSettings]=useState(false)

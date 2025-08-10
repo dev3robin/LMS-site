@@ -4,11 +4,12 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { useDispatch, useSelector } from 'react-redux';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { removeFromCart,clearCart } from '../../redux/cartSlice';
+import { Link } from 'react-router-dom';
 const Cart = () => {
   const dispatch=useDispatch()
   const cartItems=useSelector(state=>state.cart.cartItems)
   const totalBill = cartItems.reduce((acc, item) => {
-    if (!item || !item.price) return acc; // skip null or missing price
+    if (!item || !item.price) return acc;
     const price = parseFloat(item.price.replace('$', ''));
     return acc + (isNaN(price) ? 0 : price);
   }, 0).toFixed(2);
@@ -72,8 +73,10 @@ const Cart = () => {
         <div className="border-1 border-gray-200 w-full mb-10 flex flex-col gap-3 items-center justify-center">
           <div><img src="./public/continue.PNG" alt="" /></div>
           <p>Your cart is empty. Keep shopping to find a course!</p>
-          <button className='bg-purple-700 text-white px-3 py-3 font-bold rounded mb-10
-          '>Keep shopping</button>
+          <Link to='/'>
+            <button  className='bg-purple-700 text-white px-3 py-3 font-bold rounded mb-10
+            '>Keep shopping</button>
+          </Link>
         </div>
       }
       <div className="suggestionCompo mb-5">

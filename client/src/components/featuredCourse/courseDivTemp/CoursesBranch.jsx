@@ -4,6 +4,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useHorizontalScroll from '../../utils/ScrollingFunction';
 import { gsap } from 'gsap';
+import { Link, useLocation } from 'react-router-dom';
 
 const CoursesDiv = ({ courseData,activeBranch }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,6 +15,10 @@ const CoursesDiv = ({ courseData,activeBranch }) => {
 
   const { scroll: scroll1, showLeftBtn: showLeft1, showRightBtn: showRight1 } = useHorizontalScroll(CourseNavScroll);
   const { scroll: scroll2, showLeftBtn: showLeft2, showRightBtn: showRight2 } = useHorizontalScroll(CourseCardScroll);  
+
+  const location = useLocation();
+
+  const isCourses = location.pathname === '/courses';
 
   useEffect(() => {
     if (courseData.length > 0) {
@@ -75,7 +80,7 @@ const CoursesDiv = ({ courseData,activeBranch }) => {
             <ArrowBackIosIcon sx={{ color: '#6D28D2' }} />
           </button>
         )}
-        <ul className="coursesDiv" ref={CourseCardScroll}>
+        <ul className={`coursesDiv ${isCourses?'flex-wrap':'flex-nowrap'}`} ref={CourseCardScroll}>
           {selectedCourses.length > 0 &&
             selectedCourses.map((course, index) => (
                 <li key={index}>
@@ -90,7 +95,7 @@ const CoursesDiv = ({ courseData,activeBranch }) => {
           </button>
         )}
     </div>
-      <div className="courselink"><button>Sell all Data science course</button></div>
+      <div className="courselink"><Link to='/courses'><button>Sell all Data science course</button></Link></div>
     </div>
   );
 };

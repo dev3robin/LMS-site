@@ -6,16 +6,16 @@ import TimerIcon from '@mui/icons-material/Timer';
 import Countdown from '../LoSignUp/timer';
 import { setAnswer} from '../../redux/assesmentSlice';
 import { saveToStore, updateAssessmentStatus } from '../../idbHelper';
-const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen,handleStatus}) => {
+const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen}) => {
   const dispatch=useDispatch()
   const {answer} =useSelector((state)=>state.Assesment)
-  const loggedUser=useSelector((state)=>state.user.userId)
+  const loggedUser=useSelector((state)=>state.user.loggedUD)
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const questions = assesment.Quizz;
   const currentQuestion = questions[currentIndex];
 
-  const subId=loggedUser+assesment.AssesmentId
+  const subId=loggedUser.userId + assesment.AssesmentId
 
   const currentDate = new Date();
 
@@ -28,7 +28,7 @@ const QuizzBox = ({assesment,isOpen,handleQuizzboxOpen,handleStatus}) => {
 
   const submissionData={
     SubmissionId:subId,
-    UserId:loggedUser,
+    UserId:loggedUser.userId,
     AssesmentId:assesment.AssesmentId,
     SubmitDate: formattedDate,
     Answers:answer,

@@ -51,7 +51,6 @@
 .coursesDiv{
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
   text-wrap: nowrap;
   gap: 10px;
   background-color: transparent;
@@ -67,7 +66,7 @@
   border: 1px solid grey;
   position: relative;
   min-height: 400px;
-  max-width: 350px;
+  max-width: 302px;
 }
 .courseDetailsHover{
   display: none;
