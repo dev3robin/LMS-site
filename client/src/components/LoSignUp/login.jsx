@@ -5,8 +5,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import emailjs from '@emailjs/browser';
 import { setOtpData } from '../../redux/otpSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from './auth';
+import { AUTHDATA, PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from './auth';
 import { logout } from '../../redux/userSlice';
+import { saveToStore } from '../../idbHelper';
 const Login= () => {
   const [email, setEmail] = useState("");
   const navigate=useNavigate()
@@ -25,7 +26,13 @@ const Login= () => {
       );
     }
   }, []);
-
+ //first auth login
+  useEffect(()=>{
+    const addAuth= async ()=>{
+      await saveToStore("authors",AUTHDATA)
+    }
+    addAuth()
+  },[])
   
   const genOtp = Math.floor(1000 + Math.random() * 9000).toString();
   

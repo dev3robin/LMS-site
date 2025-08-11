@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
 import { setOtpData } from '../../redux/otpSlice';
 import { useDispatch } from 'react-redux';
 import { getAllFromStore, saveToStore } from '../../idbHelper';
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from './auth';
+import { AUTHDATA, PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from './auth';
 const SignUp = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
@@ -63,6 +63,7 @@ const SignUp = () => {
       );
     }
   }, []);
+
 
   const genOtp = Math.floor(1000 + Math.random() * 9000).toString();
   const sendOtp = async (e) => {
