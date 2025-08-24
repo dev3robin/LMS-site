@@ -97,23 +97,22 @@ const Menu = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const handleDashboardClick = () => {
+const handleDashboardClick = () => {
     if (!loggedUser || !loggedUser.userRole) return;
 
     switch (loggedUser.userRole) {
       case 'student':
-        navigate('/student-dashboard');
+        navigate(`/student-dashboard/${loggedUser.userId}`);
         break;
       case 'teacher':
-        navigate('/teacher-dashboard');
+        navigate(`/teacher-dashboard/${loggedUser.userId}`);
         break;
       case 'author':
-        navigate('/author-dashboard');
+        navigate(`/author-dashboard/${loggedUser.userId}`);
         break;
       default:
         alert('Unknown role');
-    };
-    toggleSidebar()
+    }
   };
   return (
           <div className="menudiv">

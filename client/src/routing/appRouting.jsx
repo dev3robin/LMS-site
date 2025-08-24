@@ -18,8 +18,8 @@ const AppRoutes = () => {
           <Route path="/courses" element={<FeaturedCourses />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/courseDetails" element={<CourseDetails />} />
-          <Route path="/student-dashboard" element={<Dashboard />} />
+          <Route path="/courseDetails/:id" element={<CourseDetails />} />
+          <Route path="/student-dashboard/:id" element={<Dashboard />} />
           <Route path="/teacher-dashboard" element={<TDashboard />} />
           <Route path="/otpCard" element={<OtpCard />} />
           <Route path="/cart" element={<Cart />} />

@@ -32,7 +32,7 @@ const CourseCard = ({ course, activeBranch, activeCategory, selectedCourses }) =
     }
   };
 
-
+  
   const handleMouseLeave = () => {
     setHoverPosition({ left: 'calc(100% + 10px)', right: 'auto' }); // reset
   };
@@ -48,7 +48,7 @@ const CourseCard = ({ course, activeBranch, activeCategory, selectedCourses }) =
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link to="/courseDetails" state={{ course, activeBranch, activeCategory }}>
+      <Link  to={`/courseDetails/${course.id}`} state={{ course, activeBranch, activeCategory }}>
         <div className="courseProfile">
           <div className="max-h-[250px] max-w-[300px] overflow-hidden">
             <img src={course.thumbnail} className="thumlineImg" alt="thumbnail" />
@@ -114,7 +114,7 @@ const CourseCard = ({ course, activeBranch, activeCategory, selectedCourses }) =
           </button>
         </div>
         <div className="w-[30%] mt-4">
-          <Link to="/courseDetails" state={{ course, activeBranch, activeCategory }}>
+          <Link to={`/courseDetails/${course.id}`}state={{ course, activeBranch, activeCategory }}>
               <button
                 className="w-full bg-purple-600 text-white rounded py-2.5 hover:bg-purple-500 active:bg-purple-800"
               >
